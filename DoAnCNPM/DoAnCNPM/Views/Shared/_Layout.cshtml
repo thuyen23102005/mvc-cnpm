@@ -2,20 +2,70 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Circle K</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    @Html.Partial("_Header")
+    <!-- HEADER NAVBAR -->
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark" style="background-color: #38F6E7;">
+        <div class="container">
+            @Html.ActionLink("Circle K", "Index", "Home", null, new { @class = "navbar-brand", style = "color: black;" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">@Html.ActionLink("Giới Thiệu", "About", "Home", null, new { @class = "nav-link", style = "color: black;" })</li>
+                    <li class="nav-item">@Html.ActionLink("Liên Hệ", "Contact", "Home", null, new { @class = "nav-link", style = "color: black;" })</li>
+                    <li class="nav-item">@Html.ActionLink("Chính Sách Bảo Mật", "Privacy", "Home", null, new { @class = "nav-link", style = "color: black;" })</li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        @Html.ActionLink("Đăng Ký", "Register", "Account", null, new
+                        {
+                            @class = "nav-link btn mx-1",
+                            style = "border: 1px solid #007BFF; color: #007BFF; border-radius: 5px;"
+                        })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Đăng Nhập", "Login", "Account", null, new
+                        {
+                            @class = "nav-link btn mx-1",
+                            style = "border: 1px solid #000000; color: #000000; border-radius: 5px;"
+                        })
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <!-- MAIN CONTENT -->
     <div class="container body-content">
         @RenderBody()
+        <hr />
     </div>
 
-    @Html.Partial("_Footer")
+    <!-- FOOTER -->
+    <footer style="background-color: #02FF28; padding: 20px; font-size: 14px; color: #000;">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+            <div>
+                <p><strong>Circle K Vietnam Chuỗi cửa hàng tiện lợi</strong> - Mở cửa 24/7</p>
+                <p>Copyright © 2016 Circle K Vietnam</p>
+                <p>Tel: +84 (28) 3620 9017</p>
+                <p>Email: info@circlek.com.vn</p>
+            </div>
+            <div>
+                <p><strong>CÔNG TY TNHH VÒNG TRÒN ĐỎ</strong></p>
+                <p>Giấy CNĐKDN: 0306182043</p>
+                <p>Ngày cấp: 10/11/2008. Nơi cấp: Sở KH&ĐT Tp. Hồ Chí Minh</p>
+                <p>Địa chỉ: 160 Bùi Thị Xuân, P. Phạm Ngũ Lão, Q.1, TP.HCM</p>
+            </div>
+        </div>
+    </footer>
 
+    <!-- SCRIPT -->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
