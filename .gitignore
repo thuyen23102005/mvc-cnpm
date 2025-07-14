@@ -1,0 +1,8 @@
+# Bỏ qua các thư mục và file không cần thiết
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.log
+*.cache
