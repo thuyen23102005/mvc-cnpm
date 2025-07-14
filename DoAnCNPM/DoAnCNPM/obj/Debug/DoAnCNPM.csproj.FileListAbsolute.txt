@@ -77,3 +77,7 @@ D:\Git Code\mvc-cnpm\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.csproj.CoreCompileInpu
 D:\Git Code\mvc-cnpm\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.csproj.Up2Date
 D:\Git Code\mvc-cnpm\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.dll
 D:\Git Code\mvc-cnpm\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.pdb
+D:\Git Code\mvc-cnpm\DoAnCNPM\DoAnCNPM\bin\EntityFramework.dll
+D:\Git Code\mvc-cnpm\DoAnCNPM\DoAnCNPM\bin\EntityFramework.SqlServer.dll
+D:\Git Code\mvc-cnpm\DoAnCNPM\DoAnCNPM\bin\EntityFramework.xml
+D:\Git Code\mvc-cnpm\DoAnCNPM\DoAnCNPM\bin\EntityFramework.SqlServer.xml
