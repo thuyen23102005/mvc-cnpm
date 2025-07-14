@@ -1,33 +1,44 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Trang Chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
+    <div class="top-bar" style="display: flex; justify-content: space-between; align-items: center; background-color: #00d4d4; padding: 10px;">
+        <img src="~/Content/Image/logo.png" alt="Circle K Logo" style="height: 40px; width: 200px;">
+        <div>
+            <a href="#">Giới Thiệu</a> |
+            <a href="#">Liên Hệ</a> |
+            <a href="#">Chính Sách Bảo Mật</a> |
+            <button>Đăng Ký</button>
+            <button style="background-color: #00d4d4; color: white;">Đăng Nhập</button>
+        </div>
+    </div>
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+    <div style="display: flex; justify-content: center; gap: 30px; background-color: #00c0c0; padding: 10px;">
+        <a href="#">Hệ Thống Circle K</a>
+        <a href="#">Ưu Đãi Đặc Biệt</a>
+        <a href="#">Thức Ăn & Thức Uống</a>
+        <a href="#">Sản Phẩm & Dịch Vụ</a>
+    </div>
+
+    <div style="text-align: center; padding: 20px;">
+        <button>HOT DEAL</button>
+        <button>TÌM CỬA HÀNG</button>
+
+        <div style="margin: 20px;">
+            <img src="~/Content/Image/deal1.png" alt="Deal 1" style="width: 200px; margin: 10px;">
+            <img src="~/Content/Image/deal2.png" alt="Deal 2" style="width: 200px; margin: 10px;">
+            <img src="~/Content/Image/deal3.png" alt="Deal 3" style="width: 200px; margin: 10px;">
+        </div>
+
+        <button style="margin: 10px; padding: 10px 20px; border: 1px solid green; background: white; color: green;">Xem Tất Cả ⭢</button>
+
+        <h2 style="color: green;">LUÔN CÓ SẢN PHẨM MỚI!</h2>
+        <div style="display: flex; justify-content: center;">
+            <img src="~/Content/Image/july1.png" alt="July 1" style="width: 200px; margin: 10px;">
+            <img src="~/Content/Image/july2.png" alt="July 2" style="width: 200px; margin: 10px;">
+        </div>
+        <button style="margin: 10px; padding: 10px 20px; border: 1px solid green; background: white; color: green;">Xem Tất Cả ⭢</button>
     </div>
 </main>
