@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChinhSachController.cs" />
     <Compile Include="Controllers\DoUongController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -160,12 +161,13 @@
     <Content Include="Content\Image\july1.png" />
     <Content Include="Content\Image\july2.png" />
     <Content Include="Content\Image\logo.png" />
-    <Content Include="Content\Image\milo.png" />
-    <Content Include="Content\Image\phanphin_tuoi.png" />
+    <Content Include="Content\Image\nestle_milo.png" />
     <Content Include="Content\Image\phaphin_den.png" />
     <Content Include="Content\Image\phaphin_sua.png" />
-    <Content Include="Content\Image\trachanh.png" />
-    <Content Include="Content\Image\trathai_xanh.png" />
+    <Content Include="Content\Image\phaphin_tuoi.png" />
+    <Content Include="Content\Image\phatea.png" />
+    <Content Include="Content\Image\phatea_do.png" />
+    <Content Include="Content\Image\phatea_xanh.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -200,6 +202,7 @@
     <Content Include="Views\Home\index.cshtml" />
     <Content Include="Views\DoUong\DoUong.cshtml" />
     <Content Include="Views\GioiThieu\GioiThieu.cshtml" />
+    <Content Include="Views\ChinhSach\ChinhSach.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

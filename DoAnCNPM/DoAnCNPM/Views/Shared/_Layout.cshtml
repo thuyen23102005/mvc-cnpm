@@ -183,6 +183,46 @@
                 background-color: black;
                 transform: translateY(-20%);
             }
+    /* === CSS CHO MENU DROPDOWN === */
+    .submenu-bar .has-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .submenu-bar .dropdown-content {
+        display: none;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+        z-index: 1;
+        border-radius: 4px;
+        padding: 10px 0;
+    }
+
+        .submenu-bar .dropdown-content a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            white-space: nowrap;
+        }
+
+            .submenu-bar .dropdown-content a:hover {
+                background-color: #f1f1f1;
+                color: #FF0000;
+            }
+
+    .submenu-bar .has-dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* Giữ lại hiệu ứng hover gốc */
+    .submenu-bar a:hover {
+        color: #FF0000;
+    }
 </style>
 @*-------------------------------------------------------------------------------------------------------------------------------------------*@
 <body>
@@ -210,7 +250,7 @@
                         @Html.ActionLink("Liên Hệ", "Index", "Home", null, new { @class = "nav-link text-dark" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Chính Sách Bảo Mật", "DoUong", "DoUong", null, new { @class = "nav-link text-dark" })
+                        @Html.ActionLink("Chính Sách Bảo Mật", "ChinhSach", "ChinhSach", null, new { @class = "nav-link text-dark" })
                     </li>
                 </ul>
             </div>
@@ -242,7 +282,18 @@
     <div class="submenu-bar">
         <a href="#"><i class="fas fa-store-alt"></i> Hệ Thống Circle K</a>
         <a href="#"><i class="fas fa-gift"></i> Ưu Đãi Đặc Biệt</a>
-        <a href="#"><i class="fas fa-utensils"></i> Thức Ăn & Thức Uống</a>
+        <div class="has-dropdown">
+            <a href="@Url.Action("DoUong", "DoUong")">
+                <i class="fa fa-utensils"></i> Thức Ăn & Thức Uống
+            </a>
+            <div class="dropdown-content">
+                <a href="@Url.Action("DoUong", "DoUong")">Thức Uống</a>
+            </div>
+            <div class="dropdown-content">
+                <a href="@Url.Action("DoUong", "DoUong")">Thức Uống</a>
+            </div>
+        </div>
+        <!-- Kết thúc phần sửa -->
         <a href="#"><i class="fas fa-box-open"></i> Sản Phẩm & Dịch Vụ</a>
     </div>
 
@@ -286,7 +337,7 @@
                         @Html.ActionLink("Liên Hệ", "Index", "Home", null, new { @class = "nav-link text-dark" })
                     </li>
                     <li>
-                        @Html.ActionLink("Chính Sách Bảo Mật", "Privacy", "Home", null, new { @class = "nav-link text-dark" })
+                        @Html.ActionLink("Chính Sách Bảo Mật", "ChinhSach", "ChinhSach", null, new { @class = "nav-link text-dark" })
                     </li>
                 </ul>
             </div>
