@@ -18,3 +18,49 @@ select,
 textarea {
     max-width: 280px;
 }
+/*-----------------------------------------------------------------------------------------------------*/
+.menu-bordered {
+    gap: 15px;
+}
+
+    .menu-bordered .nav-item {
+        position: relative;
+        padding: 0 15px;
+    }
+
+        .menu-bordered .nav-item:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 30%;
+            height: 40%;
+            width: 1px;
+            background-color: #ccc;
+        }
+.submenu-bar {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 30px !important;
+    background-color: #00c0c0 !important;
+    padding: 10px 20px !important;
+}
+
+    .submenu-bar a {
+        color: white !important;
+        text-decoration: none !important;
+        padding-left: 10px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        font-weight: 500 !important;
+    }
+
+        .submenu-bar a:not(:last-child)::after {
+            content: "";
+            width: 1px;
+            height: 20px;
+            background-color: white;
+            margin-left: 15px;
+            display: inline-block;
+        }

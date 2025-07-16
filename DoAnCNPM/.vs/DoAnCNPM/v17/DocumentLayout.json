@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|d:\\git code\\mvc-cnpm\\doancnpm\\doancnpm\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\doancnpm\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|d:\\git code\\mvc-cnpm\\doancnpm\\doancnpm\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\doancnpm\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,29 +22,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAACYAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAALkAAAAAAAAAAAAAANQAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T16:37:20.809Z"
+              "WhenOpened": "2025-07-14T16:37:20.809Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
+              "DocumentIndex": 1,
+              "Title": "index.cshtml",
               "DocumentMoniker": "D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "DoAnCNPM\\Views\\Home\\Index.cshtml",
               "ToolTip": "D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "DoAnCNPM\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-14T12:51:42.353Z",
               "EditorCaption": ""
@@ -59,7 +60,8 @@
               "RelativeToolTip": "DoAnCNPM\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T12:50:53.848Z"
+              "WhenOpened": "2025-07-14T12:50:53.848Z",
+              "EditorCaption": ""
             }
           ]
         }
