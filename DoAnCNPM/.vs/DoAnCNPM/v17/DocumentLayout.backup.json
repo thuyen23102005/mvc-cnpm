@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|c:\\prj_cnpm\\mvc-cnpm\\doancnpm\\doancnpm\\views\\chinhsach\\chinhsach.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\views\\chinhsach\\chinhsach.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|c:\\prj_cnpm\\mvc-cnpm\\doancnpm\\doancnpm\\views\\gioithieu\\gioithieu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\views\\gioithieu\\gioithieu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|c:\\prj_cnpm\\mvc-cnpm\\doancnpm\\doancnpm\\controllers\\gioithieucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\controllers\\gioithieucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|c:\\prj_cnpm\\mvc-cnpm\\doancnpm\\doancnpm\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,19 +27,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ChinhSach.cshtml",
+              "DocumentMoniker": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\ChinhSach\\ChinhSach.cshtml",
+              "RelativeDocumentMoniker": "DoAnCNPM\\Views\\ChinhSach\\ChinhSach.cshtml",
+              "ToolTip": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\ChinhSach\\ChinhSach.cshtml*",
+              "RelativeToolTip": "DoAnCNPM\\Views\\ChinhSach\\ChinhSach.cshtml*",
+              "ViewState": "AgIAACkAAAAAAAAAAAAQwFAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-18T04:26:30.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "GioiThieu.cshtml",
               "DocumentMoniker": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\GioiThieu\\GioiThieu.cshtml",
               "RelativeDocumentMoniker": "DoAnCNPM\\Views\\GioiThieu\\GioiThieu.cshtml",
               "ToolTip": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\GioiThieu\\GioiThieu.cshtml",
               "RelativeToolTip": "DoAnCNPM\\Views\\GioiThieu\\GioiThieu.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-18T04:02:50.713Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GioiThieuController.cs",
               "DocumentMoniker": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Controllers\\GioiThieuController.cs",
               "RelativeDocumentMoniker": "DoAnCNPM\\Controllers\\GioiThieuController.cs",
@@ -48,19 +61,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-18T04:02:36.249Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB8BAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-16T07:07:01.535Z",
               "EditorCaption": ""
             }
           ]
