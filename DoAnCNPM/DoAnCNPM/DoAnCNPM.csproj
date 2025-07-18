@@ -132,6 +132,7 @@
     <Compile Include="Controllers\DoUongController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,6 +205,7 @@
     <Content Include="Views\DoUong\DoUong.cshtml" />
     <Content Include="Views\GioiThieu\GioiThieu.cshtml" />
     <Content Include="Views\ChinhSach\ChinhSach.cshtml" />
+    <Content Include="Views\LienHe\LienHe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
