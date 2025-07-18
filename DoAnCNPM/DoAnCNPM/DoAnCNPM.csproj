@@ -133,6 +133,7 @@
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
+    <Compile Include="Controllers\UuDaiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -170,6 +171,7 @@
     <Content Include="Content\Image\phatea.png" />
     <Content Include="Content\Image\phatea_do.png" />
     <Content Include="Content\Image\phatea_xanh.png" />
+    <Content Include="Content\Image\UuDai_CircleK.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -206,6 +208,7 @@
     <Content Include="Views\GioiThieu\GioiThieu.cshtml" />
     <Content Include="Views\ChinhSach\ChinhSach.cshtml" />
     <Content Include="Views\LienHe\LienHe.cshtml" />
+    <Content Include="Views\UuDai\UuDai.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
