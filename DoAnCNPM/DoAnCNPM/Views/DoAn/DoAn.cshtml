@@ -1,8 +1,9 @@
-﻿@model  List<DoAnCNPM.Models.DoUong>
+﻿@model  List<DoAnCNPM.Models.DoAn>
 @{
-    ViewBag.Title = "Thức uống Circle K";
-    Layout = "~/Views/Shared/_Layout.cshtml"; // hoặc dùng null nếu bạn không có Layout
+    ViewBag.Title = "Thức ăn Circle K";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // dùng layout chung
 }
+
 <style>
     .tab-bar {
         text-align: center;
@@ -48,21 +49,26 @@
     }
 </style>
 
+<!-- Menu danh mục -->
 <div class="tab-bar">
-    <button>TẤT CẢ THỨC UỐNG</button>
-    <button>CAFE VIỆT NAM</button>
-    <button>SẢN PHẨM NESTLÉ</button>
-    <button>THỨC UỐNG PHA CHẾ</button>
+    <button>TẤT CẢ THỨC ĂN</button>
+    <button>MÌ</button>
+    <button>BÁNH MÌ</button>
+    <button>BÁNH BAO</button>
+    <button>XÔI</button>
+    <button>TRÁNG MIỆNG</button>
 </div>
 
+<!-- Danh sách món ăn -->
 <div class="product-grid">
     @foreach (var item in Model)
     {
         <div class="product-card">
-            <img src="@Url.Content(item.HinhAnh)" alt="@item.Ten" />
-            <div class="product-name">@item.Ten</div>
+            <img src="@Url.Content(item.HinhAnh)" alt="@item.TenMonAn" />
+            <div class="product-name">@item.TenMonAn</div>
         </div>
     }
 </div>
 
 <div class="explore">KHÁM PHÁ THÊM</div>
+

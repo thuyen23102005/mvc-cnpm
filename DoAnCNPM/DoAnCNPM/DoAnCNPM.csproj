@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChinhSachController.cs" />
+    <Compile Include="Controllers\DoAnController.cs" />
     <Compile Include="Controllers\DoUongController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DoAnController.cs" />
     <Compile Include="Models\DoUongController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -157,12 +159,22 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Image\banana.png" />
+    <Content Include="Content\Image\banh_bao_meaty.png" />
+    <Content Include="Content\Image\banh_bao_sweet.png" />
+    <Content Include="Content\Image\banh_gio.png" />
+    <Content Include="Content\Image\banh_mi.png" />
+    <Content Include="Content\Image\coconut.png" />
     <Content Include="Content\Image\deal1.png" />
     <Content Include="Content\Image\deal2.png" />
     <Content Include="Content\Image\deal3.png" />
+    <Content Include="Content\Image\hot_dog.png" />
     <Content Include="Content\Image\july1.png" />
     <Content Include="Content\Image\july2.png" />
     <Content Include="Content\Image\logo.png" />
+    <Content Include="Content\Image\mi_tron.png" />
+    <Content Include="Content\Image\mi_tron_indo.png" />
+    <Content Include="Content\Image\mi_tron_thap_cam.png" />
     <Content Include="Content\Image\nestle_milo.png" />
     <Content Include="Content\Image\overview_circleK.png" />
     <Content Include="Content\Image\phaphin_den.png" />
@@ -172,6 +184,7 @@
     <Content Include="Content\Image\phatea_do.png" />
     <Content Include="Content\Image\phatea_xanh.png" />
     <Content Include="Content\Image\UuDai_CircleK.png" />
+    <Content Include="Content\Image\xoi_la_chuoi.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -209,6 +222,7 @@
     <Content Include="Views\ChinhSach\ChinhSach.cshtml" />
     <Content Include="Views\LienHe\LienHe.cshtml" />
     <Content Include="Views\UuDai\UuDai.cshtml" />
+    <Content Include="Views\DoAn\DoAn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -192,37 +192,33 @@
     .submenu-bar .dropdown-content {
         display: none;
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: white;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-        z-index: 1;
-        border-radius: 4px;
-        padding: 10px 0;
+        background-color: #34495E; /* pastel blue nhẹ nhàng */
+        min-width: 180px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        z-index: 10;
+        padding: 0;
     }
 
         .submenu-bar .dropdown-content a {
-            color: black;
-            padding: 8px 16px;
-            text-decoration: none;
             display: block;
+            padding: 12px 20px;
+            color: #2C3E50; /* xanh than dễ đọc trên nền sáng */
+            text-decoration: none;
             white-space: nowrap;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
         }
 
             .submenu-bar .dropdown-content a:hover {
-                background-color: #f1f1f1;
-                color: #FF0000;
+                background-color: #D0ECF8; /* hover nhạt hơn pastel chính */
+                color: #E74C3C; /* đỏ nhấn khi hover */
             }
 
     .submenu-bar .has-dropdown:hover .dropdown-content {
         display: block;
     }
 
-    /* Giữ lại hiệu ứng hover gốc */
-    .submenu-bar a:hover {
-        color: #FF0000;
-    }
 </style>
 @*-------------------------------------------------------------------------------------------------------------------------------------------*@
 <body>
@@ -283,16 +279,15 @@
         <a href="#"><i class="fas fa-store-alt"></i> Hệ Thống Circle K</a>
         <a href="@Url.Action("UuDai", "UuDai")"><i class="fas fa-gift"></i> Ưu Đãi Đặc Biệt</a>
         <div class="has-dropdown">
-            <a href="@Url.Action("DoUong", "DoUong")">
+            <a href="#">
                 <i class="fa fa-utensils"></i> Thức Ăn & Thức Uống
             </a>
             <div class="dropdown-content">
-                <a href="@Url.Action("DoUong", "DoUong")">Thức Uống</a>
-            </div>
-            <div class="dropdown-content">
+                <a href="@Url.Action("DoAn", "DoAn")">Thức Ăn</a>
                 <a href="@Url.Action("DoUong", "DoUong")">Thức Uống</a>
             </div>
         </div>
+
         <!-- Kết thúc phần sửa -->
         <a href="#"><i class="fas fa-box-open"></i> Sản Phẩm & Dịch Vụ</a>
     </div>
