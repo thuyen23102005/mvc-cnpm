@@ -255,6 +255,12 @@
             <div class="d-flex align-items-center">
                 <ul class="navbar-nav flex-row">
                     <li class="nav-item">
+                        <a href="@Url.Action("Cart", "GioHang")" class="nav-link btn mx-1" style="border: 1px solid #007BFF; color: #007BFF; border-radius: 5px;">
+                            <img src="~/Content/Image/cart.png" alt="Cart" width="20" height="20" style="margin-right: 5px; color: #007BFF" />
+                            Giỏ Hàng
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         @Html.ActionLink("Đăng Ký", "Register", "Account", null, new
                         {
                             @class = "nav-link btn mx-1",
