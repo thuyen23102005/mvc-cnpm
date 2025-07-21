@@ -140,6 +140,7 @@
     </Compile>
     <Compile Include="Models\DoAnController.cs" />
     <Compile Include="Models\DoUongController.cs" />
+    <Compile Include="Models\QuanTriVienController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +228,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Account\" />
+    <Folder Include="Views\QuanTriVien\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
