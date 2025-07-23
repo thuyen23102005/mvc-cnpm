@@ -71,7 +71,8 @@
               "RelativeToolTip": "DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAABcAAAAAAAAAAAAowCoAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-19T18:36:16.349Z"
+              "WhenOpened": "2025-07-19T18:36:16.349Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -95,7 +96,8 @@
               "RelativeToolTip": "DoAnCNPM\\Views\\DoAn\\DoAn.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-19T16:47:32.456Z"
+              "WhenOpened": "2025-07-19T16:47:32.456Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
