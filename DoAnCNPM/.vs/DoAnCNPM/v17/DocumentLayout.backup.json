@@ -1,21 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\",
+  "WorkspaceRootPath": "D:\\doan\\mvc-cnpm\\DoAnCNPM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\doancnpm\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|D:\\doan\\mvc-cnpm\\DoAnCNPM\\doancnpm\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|d:\\git code\\mvc-cnpm\\doancnpm\\doancnpm\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|d:\\git code\\mvc-cnpm\\doancnpm\\doancnpm\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|d:\\git code\\mvc-cnpm\\doancnpm\\doancnpm\\views\\giohang\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|d:\\doan\\mvc-cnpm\\doancnpm\\doancnpm\\views\\giohang\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\views\\giohang\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -26,58 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Cart.cshtml",
-              "DocumentMoniker": "D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\GioHang\\Cart.cshtml",
-              "RelativeDocumentMoniker": "DoAnCNPM\\Views\\GioHang\\Cart.cshtml",
-              "ToolTip": "D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\GioHang\\Cart.cshtml",
-              "RelativeToolTip": "DoAnCNPM\\Views\\GioHang\\Cart.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\doan\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\doan\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABABAAAAAAAAAAAwwC0BAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-21T14:33:48.874Z",
+              "WhenOpened": "2025-07-23T02:39:52.328Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GioHangController.cs",
-              "DocumentMoniker": "D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Controllers\\GioHangController.cs",
-              "RelativeDocumentMoniker": "DoAnCNPM\\Controllers\\GioHangController.cs",
-              "ToolTip": "D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Controllers\\GioHangController.cs",
-              "RelativeToolTip": "DoAnCNPM\\Controllers\\GioHangController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T14:32:51.085Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CartItem.cs",
-              "DocumentMoniker": "D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Models\\CartItem.cs",
-              "RelativeDocumentMoniker": "DoAnCNPM\\Models\\CartItem.cs",
-              "ToolTip": "D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Models\\CartItem.cs",
-              "RelativeToolTip": "DoAnCNPM\\Models\\CartItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T14:30:12.744Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\Git Code\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAPcAAAAAAAAAAAAAwP4AAAAzAAAAAAAAAA==",
+              "Title": "Cart.cshtml",
+              "DocumentMoniker": "D:\\doan\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\GioHang\\Cart.cshtml",
+              "RelativeDocumentMoniker": "DoAnCNPM\\Views\\GioHang\\Cart.cshtml",
+              "ToolTip": "D:\\doan\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\GioHang\\Cart.cshtml",
+              "RelativeToolTip": "DoAnCNPM\\Views\\GioHang\\Cart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-21T13:05:41.439Z",
+              "WhenOpened": "2025-07-21T14:33:48.874Z",
               "EditorCaption": ""
             }
           ]

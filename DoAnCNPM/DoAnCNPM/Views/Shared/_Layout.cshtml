@@ -35,29 +35,54 @@
         justify-content: center;
         align-items: center;
         gap: 30px;
+        background-color: #38F6E7 !important;
+        padding: 10px 20px;
+    }
+
+    .submenu-bar-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
         background-color: transparent !important;
         padding: 10px 20px;
     }
 
-        .submenu-bar a {
-            color: black !important;
-            text-decoration: none;
-            position: relative;
-            padding-left: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
+    .submenu-bar a {
+        color: black !important;
+        text-decoration: none;
+        position: relative;
+        display: block; /* ✅ từ flex -> block */
+        padding: 10px 15px; /* ✅ padding đều */
+        font-weight: 500;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .submenu-bar a:not(:last-child)::after {
+            content: "";
+            width: 1px;
+            height: 20px;
+            background-color: black;
         }
 
-            .submenu-bar a:not(:last-child)::after {
-                content: "";
-                width: 1px;
-                height: 20px;
-                background-color: white;
-                margin-left: 15px;
-                display: inline-block;
-            }
+    .submenu-bar-footer a {
+        color: black !important;
+        text-decoration: none;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+    }
+
+        .submenu-bar-footer a:not(:last-child)::after {
+            content: "";
+            width: 1px;
+            height: 20px;
+            background-color: black;
+            margin-left: 15px;
+            display: inline-block;
+        }
 
     /* ===== FULL FOOTER GIAO DIỆN ===== */
     .full-footer {
@@ -66,7 +91,6 @@
         font-size: 14px;
         color: #000;
     }
-
     /* HÀNG 1: LOGO + MENU + TÌM KIẾM */
     .footer-top {
         padding: 0 10px 15px 10px;
@@ -77,32 +101,6 @@
     .footer-logo img {
         height: 60px;
     }
-
-    /* MENU PHỤ */
-    .submenu-bar {
-        display: flex;
-        gap: 25px;
-        flex-wrap: wrap;
-    }
-
-        .submenu-bar a {
-            color: black;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
-        }
-
-            .submenu-bar a:not(:last-child)::after {
-                content: "";
-                width: 1px;
-                height: 20px;
-                background-color: black;
-                margin-left: 10px;
-                display: inline-block;
-            }
-
     /* TÌM KIẾM */
     .footer-search {
         max-width: 300px;
@@ -168,21 +166,9 @@
         }
 
         .footer-nav-links li {
-            
             position: relative;
             padding: 0 15px;
         }
-
-            .footer-nav-links li:not(:last-child)::after {
-                content: "";
-                position: absolute;
-                right: 0;
-                top: 30%;
-                height: 100%;
-                width: 2px;
-                background-color: black;
-                transform: translateY(-20%);
-            }
     /* === CSS CHO MENU DROPDOWN === */
     .submenu-bar .has-dropdown {
         position: relative;
@@ -192,12 +178,11 @@
     .submenu-bar .dropdown-content {
         display: none;
         position: absolute;
-        background-color: #34495E; /* pastel blue nhẹ nhàng */
+        background-color: #38F6E7;
         min-width: 180px;
         box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
         z-index: 10;
-        padding: 0;
     }
 
         .submenu-bar .dropdown-content a {
@@ -314,7 +299,7 @@
             </div>
 
             <!-- Menu phụ -->
-            <div class="submenu-bar">
+            <div class="submenu-bar-footer">
                 <a href="#"> Hệ Thống Circle K</a>
                 <a href="@Url.Action("UuDai", "UuDai")"> Ưu Đãi Đặc Biệt</a>
                 <a href="#"> Thức Ăn & Thức Uống</a>
