@@ -1,9 +1,8 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\doanmvc\\DoAnCNPM\\",
+  "WorkspaceRootPath": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\",
   "Documents": [
     {
-<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|c:\\prj_cnpm\\mvc-cnpm\\doancnpm\\doancnpm\\models\\quantriviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\models\\quantriviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,21 +24,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\doancnpm\\models\\doancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-=======
-      "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|d:\\doanmvc\\doancnpm\\doancnpm\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|D:\\doanmvc\\DoAnCNPM\\doancnpm\\controllers\\doancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\controllers\\doancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|D:\\doanmvc\\DoAnCNPM\\doancnpm\\views\\doan\\doan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\views\\doan\\doan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|D:\\doanmvc\\DoAnCNPM\\doancnpm\\models\\doancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
->>>>>>> 3d988e8dca2b538a3be59aaa6f4532a8e5e4ddab
       "RelativeMoniker": "D:0:0:{6EE55AAB-D6ED-4C59-A568-7A9C49AB2F90}|DoAnCNPM\\DoAnCNPM.csproj|solutionrelative:doancnpm\\models\\doancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -60,7 +44,7 @@
               "RelativeDocumentMoniker": "DoAnCNPM\\Models\\QuanTriVienController.cs",
               "ToolTip": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Models\\QuanTriVienController.cs",
               "RelativeToolTip": "DoAnCNPM\\Models\\QuanTriVienController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-21T04:42:38.562Z",
               "EditorCaption": ""
@@ -81,17 +65,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\doanmvc\\DoAnCNPM\\DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
-<<<<<<< HEAD
               "ToolTip": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAABcAAAAAAAAAAAAowCoAAAAjAAAAAAAAAA==",
-=======
-              "ToolTip": "D:\\doanmvc\\DoAnCNPM\\DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "DoAnCNPM\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAPsAAAAAAAAAAAAYwA4BAAAVAAAAAAAAAA==",
->>>>>>> 3d988e8dca2b538a3be59aaa6f4532a8e5e4ddab
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-19T18:36:16.349Z",
               "EditorCaption": ""
@@ -100,9 +78,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "DoAnController.cs",
-              "DocumentMoniker": "D:\\doanmvc\\DoAnCNPM\\DoAnCNPM\\Controllers\\DoAnController.cs",
+              "DocumentMoniker": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Controllers\\DoAnController.cs",
               "RelativeDocumentMoniker": "DoAnCNPM\\Controllers\\DoAnController.cs",
-              "ToolTip": "D:\\doanmvc\\DoAnCNPM\\DoAnCNPM\\Controllers\\DoAnController.cs",
+              "ToolTip": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Controllers\\DoAnController.cs",
               "RelativeToolTip": "DoAnCNPM\\Controllers\\DoAnController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAswBEAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -112,9 +90,9 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "DoAn.cshtml",
-              "DocumentMoniker": "D:\\doanmvc\\DoAnCNPM\\DoAnCNPM\\Views\\DoAn\\DoAn.cshtml",
+              "DocumentMoniker": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\DoAn\\DoAn.cshtml",
               "RelativeDocumentMoniker": "DoAnCNPM\\Views\\DoAn\\DoAn.cshtml",
-              "ToolTip": "D:\\doanmvc\\DoAnCNPM\\DoAnCNPM\\Views\\DoAn\\DoAn.cshtml",
+              "ToolTip": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Views\\DoAn\\DoAn.cshtml",
               "RelativeToolTip": "DoAnCNPM\\Views\\DoAn\\DoAn.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -124,9 +102,9 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "DoAnController.cs",
-              "DocumentMoniker": "D:\\doanmvc\\DoAnCNPM\\DoAnCNPM\\Models\\DoAnController.cs",
+              "DocumentMoniker": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Models\\DoAnController.cs",
               "RelativeDocumentMoniker": "DoAnCNPM\\Models\\DoAnController.cs",
-              "ToolTip": "D:\\doanmvc\\DoAnCNPM\\DoAnCNPM\\Models\\DoAnController.cs",
+              "ToolTip": "C:\\PRJ_CNPM\\mvc-cnpm\\DoAnCNPM\\DoAnCNPM\\Models\\DoAnController.cs",
               "RelativeToolTip": "DoAnCNPM\\Models\\DoAnController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
