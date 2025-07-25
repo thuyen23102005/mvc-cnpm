@@ -1,0 +1,215 @@
+﻿@model DoAnCNPM.Models.Register
+
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background: url('../../Content/Image/bg.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .register-box {
+            position: relative;
+            width: 400px;
+            height: 450px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, .5);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(15px);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #fff;
+            text-align: center;
+        }
+
+        .input-box {
+            position: relative;
+            width: 310px;
+            margin: 30px 0;
+            border-bottom: 2px solid #fff;
+        }
+
+            .input-box label {
+                position: absolute;
+                top: 50%;
+                left: 5px;
+                transform: translateY(-50%);
+                font-size: 1em;
+                color: #fff;
+                pointer-events: none;
+                transition: .5s;
+            }
+
+            .input-box input:focus ~ label,
+            .input-box input:valid ~ label {
+                top: -5px;
+            }
+
+            .input-box input {
+                width: 100%;
+                height: 50px;
+                background: transparent;
+                border: none;
+                outline: none;
+                font-size: 1em;
+                color: #fff;
+                padding: 0 35px 0 5px;
+            }
+
+            .input-box .icon {
+                position: absolute;
+                right: 8px;
+                color: #fff;
+                font-size: 1.2em;
+                line-height: 57px;
+            }
+
+        .remember-forgot {
+            margin: -15px 0 15px;
+            font-size: .9em;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+        }
+
+            .remember-forgot label input {
+                margin-right: 3px;
+            }
+
+            .remember-forgot a {
+                color: #fff;
+                text-decoration: none;
+            }
+
+                .remember-forgot a:hover {
+                    text-decoration: underline;
+                }
+
+        button {
+            width: 100%;
+            height: 40px;
+            background: #fff;
+            border-radius: 40px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 1em;
+            color: #000;
+            font-weight: 500;
+        }
+
+        .login-link {
+            font-size: .9em;
+            color: #fff;
+            text-align: center;
+            margin: 25px 0 10px;
+        }
+
+            .login-link p a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+                .login-link p a:hover {
+                    text-decoration: underline;
+                }
+        .toggle-eye {
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="register-box">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+            {
+                <h2>Đăng ký</h2>
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    @Html.TextBoxFor(m => m.UserName, new { required = "required" })
+                    <label>Tài khoản</label>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    @Html.PasswordFor(m => m.Password, new { required = "required", id = "registerPassword" })
+                    <label>Mật khẩu</label>
+                    <span class="icon" style="right: 35px; cursor: pointer;" onclick="togglePassword('registerPassword', 'eyeIcon1')">
+                        <ion-icon id="eyeIcon1" name="eye-off-outline"></ion-icon>
+                    </span>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { required = "required", id = "confirmPassword" })
+                    <label>Xác nhận mật khẩu</label>
+                    <span class="icon" style="right: 35px; cursor: pointer;" onclick="togglePassword('confirmPassword', 'eyeIcon2')">
+                        <ion-icon id="eyeIcon2" name="eye-off-outline"></ion-icon>
+                    </span>
+                </div>
+
+                <button type="submit">Đăng ký</button>
+
+                <div class="login-link">
+                    <p>Đã có tài khoản? <a href="@Url.Action("Login", "Account")">Đăng nhập</a></p>
+                </div>
+            }
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </div>
+
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script>
+            function togglePassword(inputId, iconId) {
+                const passwordInput = document.getElementById(inputId);
+                const eyeIcon = document.getElementById(iconId);
+
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    eyeIcon.name = "eye-outline";
+                } else {
+                    passwordInput.type = "password";
+                    eyeIcon.name = "eye-off-outline";
+                }
+            }
+        </script>
+    </section>
+</body>
+</html>
+
+
