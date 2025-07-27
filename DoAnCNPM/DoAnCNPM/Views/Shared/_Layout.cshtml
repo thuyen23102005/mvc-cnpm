@@ -204,6 +204,17 @@
         display: block;
     }
 
+    /* Nút Đăng Ký và Giỏ Hàng: viền xanh (#007BFF) */
+    .navbar-nav .nav-link.btn.mx-1[style*="#007BFF"]:hover {
+        background-color: #007BFF !important;
+        color: white !important;
+    }
+
+    /* Nút Đăng Nhập: viền đen (#000000) */
+    .navbar-nav .nav-link.btn.mx-1[style*="#000000"]:hover {
+        background-color: #000000 !important;
+        color: white !important;
+    }
 </style>
 @*-------------------------------------------------------------------------------------------------------------------------------------------*@
 <body>
@@ -253,7 +264,7 @@
                         })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Đăng Nhập", "Login", "Account", null, new
+                        @Html.ActionLink("Đăng Nhập", "index", "QuanTriVien", null, new
                         {
                             @class = "nav-link btn mx-1",
                             style = "border: 1px solid #000000; color: #000000; border-radius: 5px;"

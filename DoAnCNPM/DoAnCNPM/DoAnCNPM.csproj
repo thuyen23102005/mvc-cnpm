@@ -315,6 +315,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\QuanTriVienController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChinhSachController.cs" />
     <Compile Include="Controllers\DoAnController.cs" />
@@ -349,6 +350,7 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>Store.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NguoiDungController.cs" />
     <Compile Include="Models\QuanTriVienController.cs" />
     <Compile Include="Models\Store.Context.cs">
       <AutoGen>True</AutoGen>
@@ -472,7 +474,7 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
-    <Content Include="Views\QuanTriVien\QuanTriVien.cshtml" />
+    <Content Include="Views\QuanTriVien\index.cshtml" />
     <Content Include="Views\Account\TaiKhoan.cshtml" />
   </ItemGroup>
   <ItemGroup>

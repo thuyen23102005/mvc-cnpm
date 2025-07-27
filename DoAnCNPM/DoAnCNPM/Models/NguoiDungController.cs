@@ -7,10 +7,10 @@ using System.Web.Mvc;
 
 namespace DoAnCNPM.Models
 {
-    public class QuanTriVien
+    public class NguoiDung
     {
         [Key]
-        public int AdminId { get; set; }
+        public int UserId { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -18,7 +18,6 @@ namespace DoAnCNPM.Models
 
         [Required]
         [StringLength(100)]
-        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [StringLength(200)]
@@ -27,7 +26,6 @@ namespace DoAnCNPM.Models
         [EmailAddress]
         public string Email { get; set; }
 
-        [StringLength(15)]
-        public string Phone { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
 }
