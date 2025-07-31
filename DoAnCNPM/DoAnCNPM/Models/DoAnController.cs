@@ -12,8 +12,14 @@ namespace DoAnCNPM.Models
         public int Id { get; set; }
 
         [Required]
-        public string TenMonAn { get; set; }
+        public string Ten { get; set; }
+
         public string HinhAnh { get; set; }
-        public string LoaiMonAn { get; set; }
+
+        public string DanhMuc { get; set; }
+
+        public decimal Gia { get; set; }  
+
+        public string MoTa { get; set; } 
     }
 }

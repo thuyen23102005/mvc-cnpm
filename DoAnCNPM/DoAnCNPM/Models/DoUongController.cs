@@ -16,6 +16,10 @@ namespace DoAnCNPM.Models
 
         public string HinhAnh { get; set; }
 
-        public string DanhMuc { get; set; } // VD: "Cafe Việt Nam", "Thức uống pha chế"
+        public string DanhMuc { get; set; }
+
+        public decimal Gia { get; set; }  // Thêm giá
+
+        public string MoTa { get; set; }  // Thêm mô tả
     }
 }
