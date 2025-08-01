@@ -8,11 +8,31 @@ using System.Web.Mvc;
 
 namespace DoAnCNPM.Controllers
 {
-    public class GioHangController : Controller 
+    public class GioHangController : Controller
     {
         public ActionResult Cart()
         {
-            return View();
+            var cart = new List<CartItem>
+    {
+        new CartItem
+        {
+            Id = 1,
+            Ten = "Chuối Circle K",
+            HinhAnh = "/Content/Image/banana.png",
+            DonGia = 12000,
+            SoLuong = 2
+        },
+        new CartItem
+        {
+            Id = 2,
+            Ten = "HotDog",
+            HinhAnh = "/Content/Image/hot_dog.png",
+            DonGia = 10000,
+            SoLuong = 1
+        }
+    };
+
+            return View(cart);
         }
     }
 }
