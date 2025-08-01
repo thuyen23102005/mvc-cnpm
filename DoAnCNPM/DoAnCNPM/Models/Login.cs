@@ -10,12 +10,12 @@ namespace DoAnCNPM.Models
     {
         public int ID { get; set; }
 
-        [Required(ErrorMessage = "Tên đăng nhập là bắt buộc")]
+        [Required(ErrorMessage = "Bạn chưa nhập tài khoản")]
         public string UserName { get; set; }
 
         public string RoleUser { get; set; }
 
-        [Required(ErrorMessage = "Mật khẩu là bắt buộc")]
+        [Required(ErrorMessage = "Bạn chưa nhập mật khẩu")]
         [DataType(DataType.Password)]
         public string PasswordUser { get; set; }
     }

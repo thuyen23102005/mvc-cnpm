@@ -19,6 +19,11 @@ namespace DoAnCNPM.Controllers
         [HttpPost]
         public ActionResult Login(Login model)
         {
+            // Kiểm tra nếu model không hợp lệ thì hiển thị lại view kèm lỗi
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
             var user = db.AdminUsers
                 .FirstOrDefault(u => u.UserName == model.UserName && u.PasswordUser.Trim() == model.PasswordUser);
 
@@ -30,7 +35,7 @@ namespace DoAnCNPM.Controllers
             }
 
             ViewBag.Error = "Sai tài khoản hoặc mật khẩu.";
-            return View();
+            return View(model);
         }
 
         // GET: Register
@@ -59,6 +64,11 @@ namespace DoAnCNPM.Controllers
             }
 
             return View(model);
+        }
+        public ActionResult Logout()
+        {
+            Session.Clear(); // hoặc chỉ Session["UserName"] = null;
+            return RedirectToAction("Index", "Home");
         }
     }
 }

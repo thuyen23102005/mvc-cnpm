@@ -13,10 +13,8 @@ namespace DoAnCNPM.Models
 
         [Required]
         public string TenSanPham { get; set; }
-
         [Required]
         public string Loai { get; set; }
-
         [Required]
         [Range(0, double.MaxValue)]
         public decimal Gia { get; set; }

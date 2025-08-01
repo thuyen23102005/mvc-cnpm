@@ -29,13 +29,30 @@
                 width: 1px;
                 background-color: #ccc;
             }
-
+    /* Cố định thanh navbar chính */
+    nav.navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .body-content {
+        margin-top: 150px; /* nav 70px + submenu 70px (điều chỉnh theo thực tế) */
+    }
     .submenu-bar {
         display: flex;
+        position: fixed;
+        top: 70px; /* chỉnh tùy thuộc chiều cao nav (ví dụ 70px) */
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         justify-content: center;
         align-items: center;
         gap: 30px;
-        background-color: #38F6E7 !important;
+        background-color: #66FFCC !important;
         padding: 10px 20px;
     }
 
@@ -86,7 +103,7 @@
 
     /* ===== FULL FOOTER GIAO DIỆN ===== */
     .full-footer {
-        background-color: #38F6E7;
+        background-color: #99FFFF;
         padding-top: 15px;
         font-size: 14px;
         color: #000;
@@ -178,7 +195,7 @@
     .submenu-bar .dropdown-content {
         display: none;
         position: absolute;
-        background-color: #38F6E7;
+        background-color: #66FFCC;
         min-width: 180px;
         box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
@@ -203,7 +220,57 @@
     .submenu-bar .has-dropdown:hover .dropdown-content {
         display: block;
     }
+    .cart-button {
+        border: 3px solid #FFCC33;
+        color: black;
+        border-radius: 5px;
+        background-color: white;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        padding: 5px 10px;
+        text-decoration: none;
+    }
 
+        /* Hover đổi màu nền và chữ */
+        .cart-button:hover {
+            background-color: #FFCC33;
+            color: black;
+        }
+    .register-button {
+        border: 3px solid #33FF66;
+        color: black;
+        border-radius: 5px;
+        background-color: white;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        padding: 5px 10px;
+        text-decoration: none;
+    }
+
+        /* Hover đổi màu nền và chữ */
+        .register-button:hover {
+            background-color: #33FF66;
+            color: black;
+        }
+    .login-button {
+        border: 3px solid aqua;
+        color: black;
+        border-radius: 5px;
+        background-color: white;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        padding: 5px 10px;
+        text-decoration: none;
+    }
+
+        /* Hover đổi màu nền và chữ */
+        .login-button:hover {
+            background-color: aqua;
+            color: black;
+        }
 </style>
 @*-------------------------------------------------------------------------------------------------------------------------------------------*@
 <body>
@@ -220,7 +287,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-                
+
             <!-- PHẦN GIỮA: MENU -->
             <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
                 <ul class="navbar-nav menu-bordered d-flex flex-row">
@@ -237,32 +304,49 @@
             </div>
 
             <!-- PHẦN PHẢI: NÚT -->
+            <!-- PHẦN PHẢI: NÚT -->
             <div class="d-flex align-items-center">
                 <ul class="navbar-nav flex-row">
                     <li class="nav-item">
-                        <a href="@Url.Action("Cart", "GioHang")" class="nav-link btn mx-1" style="border: 1px solid #007BFF; color: #007BFF; border-radius: 5px;">
-                            <img src="~/Content/Image/cart.png" alt="Cart" width="20" height="20" style="margin-right: 5px; color: #007BFF" />
+                        <a href="@Url.Action("Cart", "GioHang")" class="nav-link btn mx-1 cart-button">
+                            <img src="~/Content/Image/cart.png" alt="Cart" width="20" height="20" style="margin-right: 5px;" />
                             Giỏ Hàng
                         </a>
                     </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Đăng Ký", "Register", "Account", null, new
-                        {
-                            @class = "nav-link btn mx-1",
-                            style = "border: 1px solid #007BFF; color: #007BFF; border-radius: 5px;"
-                        })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Đăng Nhập", "Login", "Account", null, new
-                        {
-                            @class = "nav-link btn mx-1",
-                            style = "border: 1px solid #000000; color: #000000; border-radius: 5px;"
-                        })
-                    </li>
+
+                    @if (Session["UserName"] != null)
+                    {
+                        <li class="nav-item">
+                            <span class="nav-link btn mx-1" style="border: 1px solid #28a745; color: #28a745; border-radius: 5px;">
+                                <i class="fa fa-user"></i> @Session["UserName"]
+                            </span>
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Đăng Xuất", "Logout", "Account", null, new
+                            {
+                                @class = "nav-link btn mx-1",
+                                style = "border: 1px solid #dc3545; color: #dc3545; border-radius: 5px;"
+                            })
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            @Html.ActionLink("Đăng Ký", "Register", "Account", null, new
+                            {
+                                @class = "nav-link btn mx-1 register-button",
+                            })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Đăng Nhập", "Login", "Account", null, new
+                            {
+                                @class = "nav-link btn mx-1 login-button",
+                            })
+                        </li>
+                    }
                 </ul>
             </div>
-        </div>
-    </nav>
+</nav>
 
 
     <!-- MENU PHỤ CÓ ICON + ĐƯỜNG KẺ NGĂN -->
