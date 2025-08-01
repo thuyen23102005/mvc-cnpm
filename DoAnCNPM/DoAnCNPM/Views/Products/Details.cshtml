@@ -5,55 +5,44 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>CHI TIẾT SẢN PHẨM</h2>
 
 <div>
-    <h4>Product</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NamePro)
-        </dt>
+    <!-- Tên sản phẩm -->
+    <div class="form-group" style="display: flex; align-items: center; margin-bottom: 15px;">
+        <label style="width: 150px; font-weight: bold;">Tên sản phẩm:</label>
+        <span>@Html.DisplayFor(model => model.NamePro)</span>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.NamePro)
-        </dd>
+    <!-- Mô tả -->
+    <div class="form-group" style="display: flex; align-items: center; margin-bottom: 15px;">
+        <label style="width: 150px; font-weight: bold;">Mô tả:</label>
+        <span>@Html.DisplayFor(model => model.DecriptionPro)</span>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DecriptionPro)
-        </dt>
+    <!-- Đơn giá -->
+    <div class="form-group" style="display: flex; align-items: center; margin-bottom: 15px;">
+        <label style="width: 150px; font-weight: bold;">Đơn giá:</label>
+        <span>@Html.DisplayFor(model => model.Price)</span>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.DecriptionPro)
-        </dd>
+    <!-- Hình ảnh: Label + hình nằm riêng -->
+    <div class="form-group" style="display: flex; align-items: center; margin-bottom: 5px;">
+        <label style="width: 150px; font-weight: bold;">Hình:</label>
+        <span>@Html.DisplayFor(model => model.ImagePro)</span>
+    </div>
+    <div class="form-group" style="margin-left: 150px; margin-bottom: 15px;">
+        <img src="~/Content/Images/@Model.ImagePro" width="200" height="200" />
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImagePro)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImagePro)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.NameCate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Category.NameCate)
-        </dd>
-
-    </dl>
+    <!-- Loại sản phẩm -->
+    <div class="form-group" style="display: flex; align-items: center; margin-bottom: 15px;">
+        <label style="width: 150px; font-weight: bold;">Loại sản phẩm:</label>
+        <span>@Html.DisplayFor(model => model.Category.NameCate)</span>
+    </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.ProductID }) |
+    @Html.ActionLink("Quay lại", "Index")
 </p>

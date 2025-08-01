@@ -155,8 +155,8 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
-    <Reference Include="System.Collections.Immutable, Version=1.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Collections.Immutable.1.3.1\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    <Reference Include="System.Collections.Immutable, Version=9.0.0.7, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.9.0.7\lib\net462\System.Collections.Immutable.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
@@ -438,34 +438,34 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
-    <Content Include="Content\Image\banana.png" />
-    <Content Include="Content\Image\banh_bao_meaty.png" />
-    <Content Include="Content\Image\banh_bao_sweet.png" />
-    <Content Include="Content\Image\banh_gio.png" />
-    <Content Include="Content\Image\banh_mi.png" />
-    <Content Include="Content\Image\bg.jpg" />
-    <Content Include="Content\Image\cart.png" />
-    <Content Include="Content\Image\coconut.png" />
-    <Content Include="Content\Image\deal1.png" />
-    <Content Include="Content\Image\deal2.png" />
-    <Content Include="Content\Image\deal3.png" />
-    <Content Include="Content\Image\hot_dog.png" />
-    <Content Include="Content\Image\july1.png" />
-    <Content Include="Content\Image\july2.png" />
-    <Content Include="Content\Image\logo.png" />
-    <Content Include="Content\Image\mi_tron.png" />
-    <Content Include="Content\Image\mi_tron_indo.png" />
-    <Content Include="Content\Image\mi_tron_thap_cam.png" />
-    <Content Include="Content\Image\nestle_milo.png" />
-    <Content Include="Content\Image\overview_circleK.png" />
-    <Content Include="Content\Image\phaphin_den.png" />
-    <Content Include="Content\Image\phaphin_sua.png" />
-    <Content Include="Content\Image\phaphin_tuoi.png" />
-    <Content Include="Content\Image\phatea.png" />
-    <Content Include="Content\Image\phatea_do.png" />
-    <Content Include="Content\Image\phatea_xanh.png" />
-    <Content Include="Content\Image\UuDai_CircleK.png" />
-    <Content Include="Content\Image\xoi_la_chuoi.png" />
+    <Content Include="Content\Images\banana.png" />
+    <Content Include="Content\Images\banh_bao_meaty.png" />
+    <Content Include="Content\Images\banh_bao_sweet.png" />
+    <Content Include="Content\Images\banh_gio.png" />
+    <Content Include="Content\Images\banh_mi.png" />
+    <Content Include="Content\Images\bg.jpg" />
+    <Content Include="Content\Images\cart.png" />
+    <Content Include="Content\Images\coconut.png" />
+    <Content Include="Content\Images\deal1.png" />
+    <Content Include="Content\Images\deal2.png" />
+    <Content Include="Content\Images\deal3.png" />
+    <Content Include="Content\Images\hot_dog.png" />
+    <Content Include="Content\Images\july1.png" />
+    <Content Include="Content\Images\july2.png" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\mi_tron.png" />
+    <Content Include="Content\Images\mi_tron_indo.png" />
+    <Content Include="Content\Images\mi_tron_thap_cam.png" />
+    <Content Include="Content\Images\nestle_milo.png" />
+    <Content Include="Content\Images\overview_circleK.png" />
+    <Content Include="Content\Images\phaphin_den.png" />
+    <Content Include="Content\Images\phaphin_sua.png" />
+    <Content Include="Content\Images\phaphin_tuoi.png" />
+    <Content Include="Content\Images\phatea.png" />
+    <Content Include="Content\Images\phatea_do.png" />
+    <Content Include="Content\Images\phatea_xanh.png" />
+    <Content Include="Content\Images\UuDai_CircleK.png" />
+    <Content Include="Content\Images\xoi_la_chuoi.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
