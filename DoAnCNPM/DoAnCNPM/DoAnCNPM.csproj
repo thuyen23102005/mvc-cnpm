@@ -544,6 +544,7 @@
     <Content Include="Views\OrderProes\Details.cshtml" />
     <Content Include="Views\OrderProes\Edit.cshtml" />
     <Content Include="Views\OrderProes\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

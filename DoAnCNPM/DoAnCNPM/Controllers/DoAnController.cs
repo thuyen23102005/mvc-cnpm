@@ -13,14 +13,14 @@ namespace DoAnCNPM.Controllers
         {
             var danhSachDoAn = new List<DoAn>
             {
-                new DoAn { TenMonAn = "Mì Trộn", HinhAnh = "~/Content/Image/mi_tron.png", LoaiMonAn = "Mi" },
-                new DoAn { TenMonAn = "Mì Trộn Indome", HinhAnh = "~/Content/Image/mi_tron_indo.png", LoaiMonAn = "Mi" },
-                new DoAn { TenMonAn = "Mì Trộn thập cẩm", HinhAnh = "~/Content/Image/mi_tron_thap_cam.png", LoaiMonAn = "Mi" },
-                new DoAn { TenMonAn = "Bánh Bao khoai môn", HinhAnh = "~/Content/Image/banh_bao_sweet.png", LoaiMonAn = "BanhBao" },
-                new DoAn { TenMonAn = "Bánh Bao thịt", HinhAnh = "~/Content/Image/banh_bao_meaty.png", LoaiMonAn = "BanhBao" },
-                new DoAn { TenMonAn = "Bánh Mì Xúc Xích", HinhAnh = "~/Content/Image/hot_dog.png", LoaiMonAn = "BanhMi" },
-                new DoAn { TenMonAn = "Xôi lá chuối", HinhAnh = "~/Content/Image/xoi_la_chuoi.png", LoaiMonAn = "Xoi" },
-                new DoAn { TenMonAn = "Chuối", HinhAnh = "~/Content/Image/banana.png", LoaiMonAn = "TrangMieng" },
+                new DoAn { TenMonAn = "Mì Trộn", HinhAnh = "~/Content/Images/mi_tron.png", LoaiMonAn = "Mi" },
+                new DoAn { TenMonAn = "Mì Trộn Indome", HinhAnh = "~/Content/Images/mi_tron_indo.png", LoaiMonAn = "Mi" },
+                new DoAn { TenMonAn = "Mì Trộn thập cẩm", HinhAnh = "~/Content/Images/mi_tron_thap_cam.png", LoaiMonAn = "Mi" },
+                new DoAn { TenMonAn = "Bánh Bao khoai môn", HinhAnh = "~/Content/Images/banh_bao_sweet.png", LoaiMonAn = "BanhBao" },
+                new DoAn { TenMonAn = "Bánh Bao thịt", HinhAnh = "~/Content/Images/banh_bao_meaty.png", LoaiMonAn = "BanhBao" },
+                new DoAn { TenMonAn = "Bánh Mì Xúc Xích", HinhAnh = "~/Content/Images/hot_dog.png", LoaiMonAn = "BanhMi" },
+                new DoAn { TenMonAn = "Xôi lá chuối", HinhAnh = "~/Content/Images/xoi_la_chuoi.png", LoaiMonAn = "Xoi" },
+                new DoAn { TenMonAn = "Chuối", HinhAnh = "~/Content/Images/banana.png", LoaiMonAn = "TrangMieng" },
             };
 
             return View(danhSachDoAn);

@@ -31,7 +31,15 @@ namespace DoAnCNPM.Controllers
             {
                 Session["UserName"] = user.UserName;
                 Session["Role"] = user.RoleUser;
-                return RedirectToAction("Index", "Home");
+
+                if (user.RoleUser.Trim() == "0")
+                {
+                    return RedirectToAction("Index", "Products"); // Chuyển đến trang dành cho admin
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home"); // Chuyển đến trang người dùng
+                }
             }
 
             ViewBag.Error = "Sai tài khoản hoặc mật khẩu.";
