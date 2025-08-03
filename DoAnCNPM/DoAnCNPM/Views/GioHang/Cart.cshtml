@@ -17,7 +17,7 @@
             <table class="table table-bordered align-middle">
                 <thead class="thead-light">
                     <tr>
-                        <th><input type="checkbox" /></th>
+                        <th><input type="checkbox" id="select-all" /></th>
                         <th>Sản Phẩm</th>
                         <th>Đơn Giá</th>
                         <th>Số Lượng</th>
@@ -28,29 +28,29 @@
                 <tbody>
                     @for (int i = 0; i < Model.Count; i++)
                     {
-                        <tr>
+                        <tr data-index="@i">
                             <td>
-                                <input type="checkbox" name="chon[]" value="@Model[i].Id" />
+                                <input type="checkbox" class="item-checkbox" />
                             </td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <img src="@Model[i].HinhAnh" alt="@Model[i].Ten" width="60" class="me-3 border" />
+                                    <img src="@Url.Content(Model[i].HinhAnh)" alt="@Model[i].Ten" width="60" class="me-3 border" />
                                     <div>
                                         <strong>@Model[i].Ten</strong>
                                     </div>
                                 </div>
                             </td>
-                            <td>@Model[i].DonGia.ToString("N0") ₫</td>
+                            <td class="don-gia" data-dongia="@Model[i].DonGia">@Model[i].DonGia.ToString("N0") ₫</td>
                             <td>
                                 <div class="input-group" style="max-width: 120px;">
                                     <button class="btn btn-outline-secondary btn-minus" type="button">-</button>
-                                    <input type="text" name="SoLuong[@i]" value="@Model[i].SoLuong" class="form-control text-center" />
+                                    <input type="text" name="SoLuong[@i]" value="@Model[i].SoLuong" class="form-control text-center so-luong" />
                                     <button class="btn btn-outline-secondary btn-plus" type="button">+</button>
                                 </div>
                             </td>
-                            <td class="text-danger">@Model[i].ThanhTien.ToString("N0") ₫</td>
+                            <td class="thanh-tien text-danger">@Model[i].ThanhTien.ToString("N0") ₫</td>
                             <td>
-                                <a href="/GioHang/Xoa/@Model[i].Id" class="text-danger">Xóa</a>
+                                <a href="@Url.Action("Xoa", "GioHang", new { id = Model[i].Id })" class="btn btn-sm btn-danger">🗑️ Xóa</a>
                             </td>
                         </tr>
                     }
@@ -60,9 +60,7 @@
             <div class="text-end mt-3">
                 <h5>
                     Tổng cộng:
-                    <strong class="text-danger">
-                        @Model.Sum(item => item.ThanhTien).ToString("N0") ₫
-                    </strong>
+                    <strong class="text-danger" id="tongCong">0 ₫</strong>
                 </h5>
                 <button type="submit" class="btn btn-primary mt-2">🛍️ Mua Hàng</button>
             </div>
@@ -72,26 +70,66 @@
 
 @section Scripts {
     <script>
-        // Tăng số lượng
+        function formatCurrency(number) {
+            return number.toLocaleString('vi-VN') + " ₫";
+        }
+
+        // Tính Tổng Tiền
+        function updateTotals() {
+            let tong = 0;
+            document.querySelectorAll("tr[data-index]").forEach(function (row) {
+                let checkbox = row.querySelector(".item-checkbox");
+                let soLuong = parseInt(row.querySelector(".so-luong").value);
+                let donGia = parseFloat(row.querySelector(".don-gia").dataset.dongia);
+                let thanhTien = soLuong * donGia;
+                row.querySelector(".thanh-tien").textContent = formatCurrency(thanhTien);
+                if (checkbox.checked) {
+                    tong += thanhTien;
+                }
+            });
+            document.querySelector("#tongCong").textContent = formatCurrency(tong);
+        }
+
+        // Sự kiện tăng số lượng
         document.querySelectorAll(".btn-plus").forEach(function (btn) {
             btn.addEventListener("click", function () {
-                let input = this.closest(".input-group").querySelector("input");
+                let input = this.closest(".input-group").querySelector(".so-luong");
                 let value = parseInt(input.value);
                 if (!isNaN(value)) {
                     input.value = value + 1;
+                    updateTotals();
                 }
             });
         });
 
-        // Giảm số lượng
+        // Sự kiện giảm số lượng
         document.querySelectorAll(".btn-minus").forEach(function (btn) {
             btn.addEventListener("click", function () {
-                let input = this.closest(".input-group").querySelector("input");
+                let input = this.closest(".input-group").querySelector(".so-luong");
                 let value = parseInt(input.value);
                 if (!isNaN(value) && value > 1) {
                     input.value = value - 1;
+                    updateTotals();
                 }
             });
         });
+
+        // Sự kiện chọn/bỏ chọn từng checkbox
+        document.querySelectorAll(".item-checkbox").forEach(function (cb) {
+            cb.addEventListener("change", function () {
+                updateTotals();
+            });
+        });
+
+        // Sự kiện checkbox chọn tất cả
+        document.getElementById("select-all").addEventListener("change", function () {
+            const checked = this.checked;
+            document.querySelectorAll(".item-checkbox").forEach(function (cb) {
+                cb.checked = checked;
+            });
+            updateTotals();
+        });
+
+        updateTotals();
     </script>
 }

@@ -217,7 +217,7 @@
     }
 </style>
 @*-------------------------------------------------------------------------------------------------------------------------------------------*@
-<body>
+<body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #ffff;">
         <div class="container d-flex justify-content-between align-items-center w-100">
 
@@ -249,27 +249,50 @@
 
             <!-- PHẦN PHẢI: NÚT -->
             <div class="d-flex align-items-center">
-                <ul class="navbar-nav flex-row">
+                <ul class="navbar-nav flex-row align-items-center">
                     <li class="nav-item">
                         <a href="@Url.Action("Cart", "GioHang")" class="nav-link btn mx-1" style="border: 1px solid #007BFF; color: #007BFF; border-radius: 5px;">
-                            <img src="~/Content/Image/cart.png" alt="Cart" width="20" height="20" style="margin-right: 5px; color: #007BFF" />
+                            <img src="~/Content/Image/cart.png" alt="Cart" width="20" height="20" style="margin-right: 5px;" />
                             Giỏ Hàng
                         </a>
                     </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Đăng Ký", "Register", "Account", null, new
-                        {
-                            @class = "nav-link btn mx-1",
-                            style = "border: 1px solid #007BFF; color: #007BFF; border-radius: 5px;"
-                        })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Đăng Nhập", "index", "QuanTriVien", null, new
-                        {
-                            @class = "nav-link btn mx-1",
-                            style = "border: 1px solid #000000; color: #000000; border-radius: 5px;"
-                        })
-                    </li>
+
+                    @if (Session["UserName"] != null)
+                    {
+                        <li class="nav-item mx-2">
+                            @if (Session["Role"] != null && Session["Role"].ToString().Trim() == "0")
+                            {
+                                <a href="@Url.Action("Index", "Products")" class="text-dark fw-bold text-decoration-none">
+                                    👋 Xin chào, @Session["UserName"]! (Admin)
+                                </a>
+                            }
+                            else
+                            {
+                                <span class="text-dark fw-bold">👋 Xin chào, @Session["UserName"]!</span>
+                            }
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Logout", "Account")" class="nav-link btn mx-1"
+                               style="border: 1px solid red; color: red; border-radius: 5px;">
+                                Đăng Xuất
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a href="@Url.Action("Register", "Account")" class="nav-link btn mx-1"
+                               style="border: 1px solid #007BFF; color: #007BFF; border-radius: 5px;">
+                                Đăng Ký
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Login", "Account")" class="nav-link btn mx-1"
+                               style="border: 1px solid #000000; color: #000000; border-radius: 5px;">
+                                Đăng Nhập
+                            </a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -295,7 +318,7 @@
     </div>
 
     <!-- PHẦN NỘI DUNG TRANG -->
-    <div class="container body-content">
+    <div class="container body-content flex-grow-1">
         @RenderBody()
         <hr />
     </div>

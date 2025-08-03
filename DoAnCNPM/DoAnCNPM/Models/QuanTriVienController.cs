@@ -9,25 +9,16 @@ namespace DoAnCNPM.Models
 {
     public class QuanTriVien
     {
-        [Key]
-        public int AdminId { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        [StringLength(100)]
-        public string Username { get; set; }
-
+        public string TenSanPham { get; set; }
         [Required]
-        [StringLength(100)]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public string Loai { get; set; }
+        [Required]
+        [Range(0, double.MaxValue)]
+        public decimal Gia { get; set; }
 
-        [StringLength(200)]
-        public string FullName { get; set; }
-
-        [EmailAddress]
-        public string Email { get; set; }
-
-        [StringLength(15)]
-        public string Phone { get; set; }
+        public string HinhAnh { get; set; }
     }
 }

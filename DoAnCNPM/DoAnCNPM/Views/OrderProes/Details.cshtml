@@ -1,0 +1,69 @@
+﻿@model DoAnCNPM.Models.OrderPro
+
+@{
+    ViewBag.Title = "Chi tiết đơn hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CHI TIẾT ĐƠN HÀNG</h2>
+<hr />
+
+<div style="max-width: 800px;">
+
+    <!-- Ngày đặt hàng -->
+    <div class="form-group" style="display: flex; margin-bottom: 15px;">
+        <label style="width: 180px; font-weight: bold;">Ngày đặt hàng:</label>
+        <div style="flex: 1;">
+            @Html.DisplayFor(model => model.DateOrder)
+        </div>
+    </div>
+
+    <!-- Địa chỉ giao hàng -->
+    <div class="form-group" style="display: flex; margin-bottom: 15px;">
+        <label style="width: 180px; font-weight: bold;">Địa chỉ giao hàng:</label>
+        <div style="flex: 1;">
+            @Html.DisplayFor(model => model.AddressDeliverry)
+        </div>
+    </div>
+
+    <!-- Tên khách hàng -->
+    <div class="form-group" style="display: flex; margin-bottom: 15px;">
+        <label style="width: 180px; font-weight: bold;">Khách hàng:</label>
+        <div style="flex: 1;">
+            @Html.DisplayFor(model => model.Customer.NameCus)
+        </div>
+    </div>
+
+    <!-- Chi tiết sản phẩm -->
+    <h4>Chi tiết đơn hàng</h4>
+    <table class="table table-bordered table-striped">
+        <thead style="background-color: #f9f9f9;">
+            <tr>
+                <th style="text-align: center;">Sản phẩm</th>
+                <th style="text-align: center;">Số lượng</th>
+                <th style="text-align: center;">Đơn giá</th>
+                <th style="text-align: center;">Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderDetails)
+            {
+                <tr>
+                    <td>@item.Product.NamePro</td>
+                    <td style="text-align: center;">@item.Quantity</td>
+                    <td style="text-align: right;">
+                        @(item.UnitPrice.HasValue ? item.UnitPrice.Value.ToString("N0") : "")
+                    </td>
+                    <td style="text-align: right;">@(item.Quantity * item.UnitPrice).ToString("N0")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Nút điều hướng -->
+    <div class="form-group" style="margin-top: 30px;">
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Quay lại danh sách", "Index", null, new { @class = "btn btn-secondary", style = "margin-left: 10px;" })
+    </div>
+
+</div>

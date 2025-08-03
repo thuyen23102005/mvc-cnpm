@@ -1,0 +1,46 @@
+﻿@model DoAnCNPM.Models.OrderPro
+
+@{
+    ViewBag.Title = "Xóa đơn hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>XÓA ĐƠN HÀNG</h2>
+<h4>Bạn có chắc chắn muốn xóa đơn hàng này không?</h4>
+<hr />
+
+<div style="max-width: 600px;">
+    <!-- Ngày đặt hàng -->
+    <div class="form-group" style="display: flex; margin-bottom: 15px;">
+        <label style="width: 180px; font-weight: bold;">Ngày đặt hàng:</label>
+        <div style="flex: 1;">
+            @Html.DisplayFor(model => model.DateOrder)
+        </div>
+    </div>
+
+    <!-- Địa chỉ giao hàng -->
+    <div class="form-group" style="display: flex; margin-bottom: 15px;">
+        <label style="width: 180px; font-weight: bold;">Địa chỉ giao hàng:</label>
+        <div style="flex: 1;">
+            @Html.DisplayFor(model => model.AddressDeliverry)
+        </div>
+    </div>
+
+    <!-- Khách hàng -->
+    <div class="form-group" style="display: flex; margin-bottom: 15px;">
+        <label style="width: 180px; font-weight: bold;">Khách hàng:</label>
+        <div style="flex: 1;">
+            @Html.DisplayFor(model => model.Customer.NameCus)
+        </div>
+    </div>
+
+    <!-- Nút xác nhận xóa -->
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group" style="margin-top: 30px;">
+            <input type="submit" value="Xóa" class="btn btn-danger" />
+            @Html.ActionLink("Quay lại danh sách", "Index", null, new { @class = "btn btn-secondary", style = "margin-left: 10px;" })
+        </div>
+    }
+</div>
