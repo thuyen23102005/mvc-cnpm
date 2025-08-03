@@ -8,7 +8,7 @@
 <h2>DANH MỤC SẢN PHẨM</h2>
 
 <p>
-    @Html.ActionLink("Thêm sản phẩm", "Create")
+    @Html.ActionLink("Thêm sản phẩm", "Create", null, new { @class = "btn btn-success" })
 </p>
 <table class="table table-bordered" style="border-width:thick">
     <tr>
@@ -46,3 +46,7 @@
         </tr>
     }
 </table>
+@section Scripts {
+    <!-- Nếu không có script riêng thì để trống -->
+}
+

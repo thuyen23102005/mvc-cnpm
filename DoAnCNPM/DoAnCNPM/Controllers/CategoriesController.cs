@@ -48,6 +48,13 @@ namespace DoAnCNPM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IDCate,NameCate")] Category category)
         {
+            // Kiểm tra trùng tên loại sản phẩm (không phân biệt hoa thường)
+            bool isDuplicate = db.Categories.Any(c => c.NameCate.ToLower() == category.NameCate.ToLower());
+
+            if (isDuplicate)
+            {
+                ModelState.AddModelError("NameCate", "Tên loại sản phẩm đã tồn tại.");
+            }
             if (ModelState.IsValid)
             {
                 db.Categories.Add(category);

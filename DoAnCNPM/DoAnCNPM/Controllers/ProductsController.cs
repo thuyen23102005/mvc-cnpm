@@ -50,6 +50,13 @@ namespace DoAnCNPM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ProductID,NamePro,DecriptionPro,CateID,Price,ImagePro")] Product product)
         {
+            // Kiểm tra tên sản phẩm đã tồn tại chưa
+            var existingProduct = db.Products.FirstOrDefault(p => p.NamePro == product.NamePro);
+
+            if (existingProduct != null)
+            {
+                ModelState.AddModelError("NamePro", "Tên sản phẩm đã tồn tại.");
+            }
             if (ModelState.IsValid)
             {
                 db.Products.Add(product);

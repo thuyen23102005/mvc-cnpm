@@ -1,56 +1,51 @@
 ﻿@model DoAnCNPM.Models.Product
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Xóa sản phẩm";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>XÓA SẢN PHẨM</h2>
+<h2 class="mb-4 text-danger">XÓA SẢN PHẨM</h2>
 
-<h4>Bạn có chắc chắn muốn xóa sản phẩm này không?</h4>
-<hr />
-
-<!-- Tên sản phẩm -->
-<div class="form-group" style="display: flex; align-items: center; margin-bottom: 15px;">
-    <label style="width: 150px; font-weight: bold;">Tên sản phẩm:</label>
-    <span>@Html.DisplayFor(model => model.NamePro)</span>
+<div class="alert alert-warning" role="alert">
+    <strong>Bạn có chắc chắn muốn xóa sản phẩm này không?</strong> Hành động này không thể hoàn tác.
 </div>
 
-<!-- Mô tả -->
-<div class="form-group" style="display: flex; align-items: center; margin-bottom: 15px;">
-    <label style="width: 150px; font-weight: bold;">Mô tả:</label>
-    <span>@Html.DisplayFor(model => model.DecriptionPro)</span>
+<div class="card shadow-sm p-4 mb-4 bg-light rounded">
+    <div class="row mb-3">
+        <div class="col-sm-3 fw-bold">Tên sản phẩm:</div>
+        <div class="col-sm-9">@Html.DisplayFor(model => model.NamePro)</div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-3 fw-bold">Mô tả:</div>
+        <div class="col-sm-9">@Html.DisplayFor(model => model.DecriptionPro)</div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-3 fw-bold">Đơn giá:</div>
+        <div class="col-sm-9">@Html.DisplayFor(model => model.Price)</div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-3 fw-bold">Hình:</div>
+        <div class="col-sm-9">
+            <div>@Html.DisplayFor(model => model.ImagePro)</div>
+            <img src="~/Content/Images/@Model.ImagePro" class="img-thumbnail mt-2" width="200" height="200" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-3 fw-bold">Loại sản phẩm:</div>
+        <div class="col-sm-9">@Html.DisplayFor(model => model.Category.NameCate)</div>
+    </div>
 </div>
 
-<!-- Đơn giá -->
-<div class="form-group" style="display: flex; align-items: center; margin-bottom: 15px;">
-    <label style="width: 150px; font-weight: bold;">Đơn giá:</label>
-    <span>@Html.DisplayFor(model => model.Price)</span>
-</div>
-
-<!-- Hình ảnh: label + ảnh bên dưới -->
-<div class="form-group" style="display: flex; align-items: center; margin-bottom: 5px;">
-    <label style="width: 150px; font-weight: bold;">Hình:</label>
-    <span>@Html.DisplayFor(model => model.ImagePro)</span>
-</div>
-<div class="form-group" style="margin-left: 150px; margin-bottom: 15px;">
-    <img src="~/Content/Images/@Model.ImagePro" width="200" height="200" />
-</div>
-
-<!-- Loại sản phẩm -->
-<div class="form-group" style="display: flex; align-items: center; margin-bottom: 15px;">
-    <label style="width: 150px; font-weight: bold;">Loại sản phẩm:</label>
-    <span>@Html.DisplayFor(model => model.Category.NameCate)</span>
-</div>
-
-<!-- Nút xác nhận xóa -->
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
-    <div class="form-actions">
-        <input type="submit" value="Xóa" class="btn btn-danger" /> |
-        @Html.ActionLink("Quay lại danh sách", "Index")
+    <div class="mt-3">
+        <input type="submit" value="Xác nhận xóa" class="btn btn-danger me-2" />
+        @Html.ActionLink("Hủy bỏ", "Index", null, new { @class = "btn btn-secondary" })
     </div>
 }
-

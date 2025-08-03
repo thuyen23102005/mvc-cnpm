@@ -1,0 +1,47 @@
+﻿@model DoAnCNPM.Models.OrderDetail
+
+@{
+    ViewBag.Title = "Thêm Chi Tiết Đơn Hàng";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm p-4" style="max-width: 800px; margin: 0 auto;">
+        <h2 class="text-center mb-4" style="color: orange;">THÊM CHI TIẾT ĐƠN HÀNG</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group mb-3">
+                <label class="fw-bold">Sản phẩm</label>
+                @Html.DropDownList("IDProduct", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IDProduct, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="fw-bold">Đơn hàng</label>
+                @Html.DropDownList("IDOrder", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IDOrder, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="fw-bold">@Html.DisplayNameFor(model => model.Quantity)</label>
+                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mb-4">
+                <label class="fw-bold">@Html.DisplayNameFor(model => model.UnitPrice)</label>
+                @Html.EditorFor(model => model.UnitPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UnitPrice, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <input type="submit" value="Thêm" class="btn btn-success me-2" />
+                @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        }
+    </div>
+</div>

@@ -56,6 +56,14 @@ namespace DoAnCNPM.Controllers
         [HttpPost]
         public ActionResult Register(Register model)
         {
+            // Kiểm tra UserName đã tồn tại chưa
+            bool isDuplicateUser = db.AdminUsers.Any(u => u.UserName.ToLower() == model.UserName.ToLower());
+
+            if (isDuplicateUser)
+            {
+                ModelState.AddModelError("UserName", "Tên đăng nhập đã tồn tại.");
+                return View(model);
+            }
             if (ModelState.IsValid)
             {
                 var user = new AdminUser

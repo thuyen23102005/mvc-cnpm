@@ -137,27 +137,48 @@
 <body>
     <section>
         <div class="login-box">
-            @using(Html.BeginForm("Login", "Account", FormMethod.Post))
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
             {
                 <h2>Đăng nhập</h2>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="person"></ion-icon></span>
-                    @Html.TextBoxFor(m => m.UserName, new { required = "required" })
+                    @Html.TextBoxFor(m => m.UserName)
                     <label>Tài khoản</label>
+                        @Html.ValidationMessageFor(m => m.UserName, "", new 
+                   { 
+                       @class = "text-danger",
+                       style = " color:red" 
+                   })
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    @Html.PasswordFor(m => m.PasswordUser, new { required = "required", id = "password" })
-                    <label>Mật khẩu</label>
                     <span class="icon" style="right: 35px; cursor: pointer;" onclick="togglePassword('registerPassword', 'eyeIcon')">
                         <ion-icon id="eyeIcon" name="eye-off-outline"></ion-icon>
                     </span>
+                    @Html.PasswordFor(m => m.PasswordUser, new { id = "password" })
+                    <label>Mật khẩu</label>
+
+
+                    @Html.ValidationMessageFor(m => m.PasswordUser, "", new
+                        {
+                            @class = "text-danger",
+                            style = " color:red"
+                        })
                 </div>
+
                 <div class="remember-forgot">
                     <label><input type="checkbox" /> Nhớ tài khoản</label>
                     <a href="#">Quên mật khẩu?</a>
                 </div>
                 <button type="submit">Đăng nhập</button>
+                <div>
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="text-danger" style="margin:10px; color:red">
+                            @ViewBag.Error
+                        </div>
+                    }
+                </div>
                 <div class="register-link">
                     <p>Bạn chưa có tài khoản? <a href="@Url.Action("Register", "Account")">Đăng ký ngay</a> </p>
                 </div>
@@ -183,4 +204,9 @@
         </script>
     </section>
 </body>
+@section Scripts {
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
 
