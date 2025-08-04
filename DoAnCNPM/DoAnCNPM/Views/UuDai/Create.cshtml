@@ -1,0 +1,142 @@
+@model DoAnCNPM.Models.Coupon
+
+@{
+    ViewBag.Title = "Thêm mã giảm giá";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">Thêm mã giảm giá mới</h3>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    @Html.LabelFor(model => model.Code, new { @class = "form-label" })
+                                    @Html.TextBoxFor(model => model.Code, new { @class = "form-control", placeholder = "VD: WELCOME10" })
+                                    @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    @Html.LabelFor(model => model.DiscountType, new { @class = "form-label" })
+                                    @Html.DropDownListFor(model => model.DiscountType, 
+                                        new SelectList(new[] { 
+                                            new { Value = "Percentage", Text = "Phần trăm (%)" },
+                                            new { Value = "Fixed", Text = "Số tiền cố định (VNĐ)" }
+                                        }, "Value", "Text"), 
+                                        "Chọn loại giảm giá", 
+                                        new { @class = "form-select" })
+                                    @Html.ValidationMessageFor(model => model.DiscountType, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.Description, new { @class = "form-label" })
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control", rows = "3", placeholder = "Mô tả mã giảm giá..." })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    @Html.LabelFor(model => model.DiscountValue, new { @class = "form-label" })
+                                    @Html.TextBoxFor(model => model.DiscountValue, new { @class = "form-control", type = "number", step = "0.01", min = "0" })
+                                    @Html.ValidationMessageFor(model => model.DiscountValue, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    @Html.LabelFor(model => model.MinimumOrderValue, new { @class = "form-label" })
+                                    @Html.TextBoxFor(model => model.MinimumOrderValue, new { @class = "form-control", type = "number", step = "1000", min = "0" })
+                                    @Html.ValidationMessageFor(model => model.MinimumOrderValue, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    @Html.LabelFor(model => model.Quantity, new { @class = "form-label" })
+                                    @Html.TextBoxFor(model => model.Quantity, new { @class = "form-control", type = "number", min = "1" })
+                                    @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    @Html.LabelFor(model => model.IsActive, new { @class = "form-label" })
+                                    <div class="form-check form-switch">
+                                        @Html.CheckBoxFor(model => model.IsActive, new { @class = "form-check-input" })
+                                        <label class="form-check-label" for="IsActive">Kích hoạt mã giảm giá</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    @Html.LabelFor(model => model.StartDate, new { @class = "form-label" })
+                                    @Html.TextBoxFor(model => model.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    @Html.LabelFor(model => model.EndDate, new { @class = "form-label" })
+                                    @Html.TextBoxFor(model => model.EndDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a href="@Url.Action("Index")" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Quay lại
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Lưu mã giảm giá
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            // Set default dates
+            if (!$('#StartDate').val()) {
+                $('#StartDate').val(new Date().toISOString().split('T')[0]);
+            }
+            if (!$('#EndDate').val()) {
+                var endDate = new Date();
+                endDate.setMonth(endDate.getMonth() + 1);
+                $('#EndDate').val(endDate.toISOString().split('T')[0]);
+            }
+
+            // Validate end date > start date
+            $('#EndDate').change(function () {
+                var startDate = new Date($('#StartDate').val());
+                var endDate = new Date($(this).val());
+                if (endDate <= startDate) {
+                    alert('Ngày kết thúc phải lớn hơn ngày bắt đầu!');
+                    $(this).val('');
+                }
+            });
+        });
+    </script>
+} 

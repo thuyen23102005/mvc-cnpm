@@ -1,0 +1,60 @@
+﻿@model List<DoAnCNPM.Models.Product>
+
+@{
+    ViewBag.Title = "Kết quả tìm kiếm";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // hoặc Layout bạn đang dùng
+}
+
+<h2>Kết quả tìm kiếm cho "@Request.QueryString["query"]"</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Không tìm thấy sản phẩm phù hợp.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 mb-3">
+                <div class="card h-100">
+                    <img src="~/Content/Images/@item.ImagePro" class="card-img-top" style="height: 200px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.NamePro</h5>
+                        <p class="card-text">@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "0") VNĐ</p>
+                        <a href="javascript:void(0)" class="btn btn-sm btn-primary"
+                           onclick="showPopup(@item.ProductID,
+                               '@Html.Raw(HttpUtility.JavaScriptStringEncode(item.NamePro))','/Content/Images/@item.ImagePro','@item.CateID','@item.Price.Value.ToString("N0")','@Html.Raw(HttpUtility.JavaScriptStringEncode(item.DecriptionPro))')">
+                            Xem chi tiết
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+<!-- POPUP CHI TIẾT SẢN PHẨM -->
+<div id="popup" style="display:none; position:fixed; top:10%; left:50%; transform:translateX(-50%); background:#fff; padding:20px; border:1px solid #ccc; z-index:1000; border-radius:10px; width:300px;">
+    <span style="float:right; cursor:pointer; font-size:18px;" onclick="closePopup()">❌</span>
+    <img id="popup-img" src="" style="width:100%; border-radius:10px;" />
+    <h3 id="popup-name" style="margin-top:10px;"></h3>
+    <p><b>Danh mục:</b> <span id="popup-category"></span></p>
+    <p><b>Mô tả:</b> <span id="popup-desc"></span></p>
+    <p><b>Giá:</b> <span id="popup-price"></span> VND</p>
+
+    <input type="hidden" id="popup-id" value="" />
+
+    <div style="margin:10px 0;">
+        <label>Số lượng:</label>
+        <input type="number" id="popup-qty" value="1" min="1" style="width:60px;" />
+    </div>
+    <button onclick="themVaoGioHang()" style="background-color:#28a745; color:white; padding:8px 16px; border:none; border-radius:5px;">
+        🛒 Thêm vào giỏ hàng
+    </button>
+</div>
+
+<!-- NỀN LÀM MỜ KHI POPUP HIỆN -->
+<div id="popup-bg" onclick="closePopup()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.3); z-index:999;"></div>
+
+<script src="~/Scripts/popup.js"></script>

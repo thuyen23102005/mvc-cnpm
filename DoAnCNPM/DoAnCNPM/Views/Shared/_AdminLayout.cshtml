@@ -51,14 +51,16 @@
                 }
     </style>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <!-- HEADER ADMIN -->
     <header style="background-color: #222; color: white; padding: 10px;">
         <h2>Khu vực quản trị</h2>
         <nav>
             <ul style="list-style: none; display: flex; gap: 15px;">
+                <li>@Html.ActionLink("Thống kê doanh thu", "RevenueByMonth", "Report")</li>
                 <li>@Html.ActionLink("Quản lý sản phẩm", "Index", "Products")</li>
                 <li>@Html.ActionLink("Quản lý loại sản phẩm", "Index", "Categories")</li>
+                <li>@Html.ActionLink("Quản lý khuyến mãi", "Index", "UuDai")</li>
                 <li>@Html.ActionLink("Chi tiết đơn hàng", "Index", "OrderDetails")</li>
                 <li>@Html.ActionLink("Danh sách đơn hàng", "Index", "OrderProes")</li>
                 <li>@Html.ActionLink("Danh sách khách hàng", "Index", "Customers")</li>
@@ -68,12 +70,12 @@
     </header>
 
     <!-- NỘI DUNG CHÍNH -->
-    <main style="padding: 20px;">
+    <main class="flex-fill" style="padding: 20px;">
         @RenderBody()
     </main>
 
     <!-- FOOTER -->
-    <footer style="background-color: #222; color: white; text-align: center; padding: 10px;">
+    <footer class="mt-auto" style="background-color: #222; color: white; text-align: center; padding: 10px;">
         <p>&copy; @DateTime.Now.Year - Trang quản trị</p>
     </footer>
     <!-- BỔ SUNG: Để tránh lỗi thiếu Scripts section -->

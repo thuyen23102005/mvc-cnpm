@@ -1,9 +1,334 @@
-﻿@model List<DoAnCNPM.Models.CartItem> 
+﻿@model List<DoAnCNPM.Models.CartItem>
 @{
-    ViewBag.Title = "Giỏ Hàng";
-    Layout = "~/Views/Shared/_Layout.cshtml"; // nếu chưa chỉ định sẵn
+    ViewBag.Title = "Giỏ Hàng Circle K";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container mt-4">
-    <h2 class="mb-4">🛒 Giỏ Hàng Của Bạn</h2>
+    <h2 class="mb-4">🛒 Giỏ Hàng Của Bạn - Circle K</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="text-center my-5">
+            <img src="@Url.Content("~/Content/Images/cart_empty.png")" alt="Giỏ hàng trống" style="max-width: 200px;" />
+            <h4 class="mt-3 text-dark fw-bold">“Hổng” có gì trong giỏ hết</h4>
+            <p class="text-muted">Về trang cửa hàng để chọn mua sản phẩm bạn nhé!!</p>
+            <a href="@Url.Action("Index", "Home")" class="btn btn-outline-dark mt-2">Mua sắm ngay</a>
+        </div>
+    }
+    else
+    {
+        <form method="post" action="/GioHang/MuaHang">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-list"></i> Sản phẩm trong giỏ hàng</h5>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th><input type="checkbox" id="select-all" /></th>
+                                        <th>Sản Phẩm</th>
+                                        <th>Đơn Giá</th>
+                                        <th>Số Lượng</th>
+                                        <th>Thành Tiền</th>
+                                        <th>Thao Tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int i = 0; i < Model.Count; i++)
+                                    {
+                                        <tr data-index="@i">
+                                            <td>
+                                                <input type="checkbox" class="item-checkbox" checked />
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    @{
+                                                        var imgPath = string.IsNullOrEmpty(Model[i].HinhAnh)
+                                                            ? "~/Content/Images/banana.png"
+                                                            : "~/Content/Images/" + Model[i].HinhAnh;
+                                                    }
+                                                    <img src="@Url.Content(imgPath)" alt="@Model[i].Ten" width="60" class="me-3 border rounded" />
+                                                    <div>
+                                                        <strong>@Model[i].Ten</strong>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="don-gia" data-dongia="@Model[i].DonGia">@Model[i].DonGia.ToString("N0") ₫</td>
+                                            <td>
+                                                <div class="input-group" style="max-width: 120px;">
+                                                    <button class="btn btn-outline-secondary btn-minus" type="button">-</button>
+                                                    <input type="text" name="SoLuong[@i]" value="@Model[i].SoLuong" class="form-control text-center so-luong" />
+                                                    <button class="btn btn-outline-secondary btn-plus" type="button">+</button>
+                                                </div>
+                                            </td>
+                                            <td class="thanh-tien text-danger fw-bold">@Model[i].ThanhTien.ToString("N0") ₫</td>
+                                            <td>
+                                                <a href="@Url.Action("Xoa", "GioHang", new { id = Model[i].Id })" class="btn btn-sm btn-danger">
+                                                    <i class="fas fa-trash"></i> Xóa
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-tag"></i> Mã giảm giá</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="couponCode" class="form-label">Nhập mã giảm giá:</label>
+                                <div class="input-group">
+                                    <input type="text" id="couponCode" class="form-control" placeholder="VD: WELCOME10">
+                                    <button type="button" id="applyCoupon" class="btn btn-outline-primary">
+                                        <i class="fas fa-check"></i> Áp dụng
+                                    </button>
+                                </div>
+                                <div id="couponMessage" class="mt-2"></div>
+                            </div>
+
+                            <div id="appliedCoupon" class="alert alert-success d-none">
+                                <h6><i class="fas fa-check-circle"></i> Mã đã áp dụng:</h6>
+                                <div id="couponInfo"></div>
+                                <button type="button" id="removeCoupon" class="btn btn-sm btn-outline-danger mt-2">
+                                    <i class="fas fa-times"></i> Xóa mã
+                                </button>
+                            </div>
+
+                            <div class="text-center">
+                                <a href="@Url.Action("UuDai", "UuDai")" class="btn btn-outline-info btn-sm">
+                                    <i class="fas fa-gift"></i> Xem tất cả mã giảm giá
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-calculator"></i> Tổng thanh toán</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Tổng tiền hàng:</span>
+                                <span id="subtotal">0 ₫</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2" id="discountRow" style="display: none;">
+                                <span>Giảm giá:</span>
+                                <span id="discount" class="text-success">-0 ₫</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-3">
+                                <strong>Tổng cộng:</strong>
+                                <strong class="text-danger fs-5" id="total">0 ₫</strong>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fas fa-shopping-cart"></i> Tiến hành thanh toán
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
 </div>
+
+@section Scripts {
+    <script>
+        let appliedCouponData = null;
+
+        function formatCurrency(number) {
+            return number.toLocaleString('vi-VN') + " ₫";
+        }
+
+        // Tính Tổng Tiền
+        function updateTotals() {
+            let subtotal = 0;
+            document.querySelectorAll("tr[data-index]").forEach(function (row) {
+                let checkbox = row.querySelector(".item-checkbox");
+                let soLuong = parseInt(row.querySelector(".so-luong").value);
+                let donGia = parseFloat(row.querySelector(".don-gia").dataset.dongia);
+                let thanhTien = soLuong * donGia;
+                row.querySelector(".thanh-tien").textContent = formatCurrency(thanhTien);
+                if (checkbox.checked) {
+                    subtotal += thanhTien;
+                }
+            });
+
+            document.querySelector("#subtotal").textContent = formatCurrency(subtotal);
+            
+            // Tính toán giảm giá nếu có mã
+            let discount = 0;
+            if (appliedCouponData) {
+                discount = appliedCouponData.discount;
+            }
+            
+            let total = subtotal - discount;
+            document.querySelector("#total").textContent = formatCurrency(total);
+            
+            // Hiển thị dòng giảm giá
+            const discountRow = document.querySelector("#discountRow");
+            const discountElement = document.querySelector("#discount");
+            if (discount > 0) {
+                discountRow.style.display = "flex";
+                discountElement.textContent = "-" + formatCurrency(discount);
+            } else {
+                discountRow.style.display = "none";
+            }
+        }
+
+        // Áp dụng mã giảm giá
+        document.getElementById("applyCoupon").addEventListener("click", function() {
+            const couponCode = document.getElementById("couponCode").value.trim();
+            if (!couponCode) {
+                showCouponMessage("Vui lòng nhập mã giảm giá!", "danger");
+                return;
+            }
+
+            // Lấy tổng tiền hiện tại
+            let currentTotal = 0;
+            document.querySelectorAll("tr[data-index]").forEach(function (row) {
+                let checkbox = row.querySelector(".item-checkbox");
+                let soLuong = parseInt(row.querySelector(".so-luong").value);
+                let donGia = parseFloat(row.querySelector(".don-gia").dataset.dongia);
+                if (checkbox.checked) {
+                    currentTotal += soLuong * donGia;
+                }
+            });
+
+            // Gọi API kiểm tra mã
+            fetch('/GioHang/ApplyCoupon', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ couponCode: couponCode })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    appliedCouponData = data.data;
+                    showAppliedCoupon(data.data);
+                    showCouponMessage(data.message, "success");
+                    updateTotals();
+                } else {
+                    showCouponMessage(data.message, "danger");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showCouponMessage("Có lỗi xảy ra khi kiểm tra mã!", "danger");
+            });
+        });
+
+        // Xóa mã giảm giá
+        document.getElementById("removeCoupon").addEventListener("click", function() {
+            fetch('/GioHang/RemoveCoupon', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    appliedCouponData = null;
+                    hideAppliedCoupon();
+                    showCouponMessage(data.message, "success");
+                    updateTotals();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showCouponMessage("Có lỗi xảy ra!", "danger");
+            });
+        });
+
+        function showCouponMessage(message, type) {
+            const messageDiv = document.getElementById("couponMessage");
+            messageDiv.className = `alert alert-${type} mt-2`;
+            messageDiv.textContent = message;
+            
+            setTimeout(() => {
+                messageDiv.className = "";
+                messageDiv.textContent = "";
+            }, 5000);
+        }
+
+        function showAppliedCoupon(couponData) {
+            const appliedDiv = document.getElementById("appliedCoupon");
+            const couponInfo = document.getElementById("couponInfo");
+            
+            couponInfo.innerHTML = `
+                <strong>${couponData.couponInfo.code}</strong><br>
+                <small>${couponData.couponInfo.description}</small><br>
+                <span class="text-success">Giảm: ${formatCurrency(couponData.discount)}</span>
+            `;
+            
+            appliedDiv.classList.remove("d-none");
+            document.getElementById("couponCode").value = "";
+        }
+
+        function hideAppliedCoupon() {
+            document.getElementById("appliedCoupon").classList.add("d-none");
+        }
+
+        // Sự kiện tăng số lượng
+        document.querySelectorAll(".btn-plus").forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                let input = this.closest(".input-group").querySelector(".so-luong");
+                let value = parseInt(input.value);
+                if (!isNaN(value)) {
+                    input.value = value + 1;
+                    updateTotals();
+                }
+            });
+        });
+
+        // Sự kiện giảm số lượng
+        document.querySelectorAll(".btn-minus").forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                let input = this.closest(".input-group").querySelector(".so-luong");
+                let value = parseInt(input.value);
+                if (!isNaN(value) && value > 1) {
+                    input.value = value - 1;
+                    updateTotals();
+                }
+            });
+        });
+
+        // Sự kiện chọn/bỏ chọn từng checkbox
+        document.querySelectorAll(".item-checkbox").forEach(function (cb) {
+            cb.addEventListener("change", function () {
+                updateTotals();
+            });
+        });
+
+        // Sự kiện checkbox chọn tất cả
+        document.getElementById("select-all").addEventListener("change", function () {
+            const checked = this.checked;
+            document.querySelectorAll(".item-checkbox").forEach(function (cb) {
+                cb.checked = checked;
+            });
+            updateTotals();
+        });
+
+        // Enter key để áp dụng mã
+        document.getElementById("couponCode").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                document.getElementById("applyCoupon").click();
+            }
+        });
+
+        updateTotals();
+    </script>
+}

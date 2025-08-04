@@ -1,4 +1,4 @@
-﻿@model  List<DoAnCNPM.Models.DoUong>
+﻿@model  List<DoAnCNPM.Models.Product>
 @{
     ViewBag.Title = "Thức uống Circle K";
     Layout = "~/Views/Shared/_Layout.cshtml"; // hoặc dùng null nếu bạn không có Layout
@@ -46,23 +46,61 @@
         color: green;
         margin: 30px;
     }
+
+    .tab-bar button.active {
+        background-color: #28a745;
+        color: white;
+        font-weight: bold;
+        border: 2px solid #1e7e34;
+    }
 </style>
 
+<!-- Menu danh mục -->
 <div class="tab-bar">
-    <button>TẤT CẢ THỨC UỐNG</button>
-    <button>CAFE VIỆT NAM</button>
-    <button>SẢN PHẨM NESTLÉ</button>
-    <button>THỨC UỐNG PHA CHẾ</button>
+    <button data-danhmuc="Tất Cả" onclick="locDanhMuc('Tất Cả')">TẤT CẢ THỨC UỐNG</button>
+    <button data-danhmuc="Cafe Việt Nam" onclick="locDanhMuc('Cafe Việt Nam')">CAFE VIỆT NAM</button>
+    <button data-danhmuc="Sản phẩm Nestlé" onclick="locDanhMuc('Sản Phẩm Nestlé')">SẢN PHẨM NESTLÉ</button>
+    <button data-danhmuc="Thức uống pha chế" onclick="locDanhMuc('Thức Uống Pha Chế')">THỨC UỐNG PHA CHẾ</button>
 </div>
 
+<!-- Danh sách đồ uống -->
 <div class="product-grid">
     @foreach (var item in Model)
     {
-        <div class="product-card">
-            <img src="@Url.Content(item.HinhAnh)" alt="@item.Ten" />
-            <div class="product-name">@item.Ten</div>
+        var imagePath = string.IsNullOrEmpty(item.ImagePro)
+            ? "~/Content/Images/Banana.png"
+            : "~/Content/Images/" + item.ImagePro;
+
+        <div class="product-card" data-danhmuc="@item.Category.NameCate">
+            <img src="@Url.Content(imagePath)" alt="@item.NamePro"
+                 onclick="showPopup('@item.ProductID', '@item.NamePro', '@Url.Content(imagePath)', '@item.Category.NameCate', '@item.Price', '@item.DecriptionPro')" />
+            <div class="product-name">@item.NamePro</div>
         </div>
     }
 </div>
 
-<div class="explore">KHÁM PHÁ THÊM</div>
+<!-- POPUP CHI TIẾT SẢN PHẨM -->
+<div id="popup" style="display:none; position:fixed; top:10%; left:50%; transform:translateX(-50%); background:#fff; padding:20px; border:1px solid #ccc; z-index:1000; border-radius:10px; width:300px;">
+    <span style="float:right; cursor:pointer; font-size:18px;" onclick="closePopup()">❌</span>
+    <img id="popup-img" src="" style="width:100%; border-radius:10px;" />
+    <h3 id="popup-name" style="margin-top:10px;"></h3>
+    <p><b>Danh mục:</b> <span id="popup-category"></span></p>
+    <p><b>Mô tả:</b> <span id="popup-desc"></span></p>
+    <p><b>Giá:</b> <span id="popup-price"></span> VND</p>
+
+    <input type="hidden" id="popup-id" value="" />
+
+    <div style="margin:10px 0;">
+        <label>Số lượng:</label>
+        <input type="number" id="popup-qty" value="1" min="1" style="width:60px;" />
+    </div>
+    <button onclick="themVaoGioHang()" style="background-color:#28a745; color:white; padding:8px 16px; border:none; border-radius:5px;">
+        🛒 Thêm vào giỏ hàng
+    </button>
+</div>
+
+<!-- NỀN LÀM MỜ KHI POPUP HIỆN -->
+<div id="popup-bg" onclick="closePopup()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.3); z-index:999;"></div>
+
+<script src="~/Scripts/popup.js"></script>
+<script src="~/Scripts/loc.js"></script>

@@ -27,6 +27,7 @@ namespace DoAnCNPM.Models
     
         public virtual DbSet<AdminUser> AdminUsers { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Coupon> Coupons { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<OrderPro> OrderProes { get; set; }

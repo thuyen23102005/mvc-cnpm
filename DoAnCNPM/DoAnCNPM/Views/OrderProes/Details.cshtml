@@ -52,9 +52,15 @@
                     <td>@item.Product.NamePro</td>
                     <td style="text-align: center;">@item.Quantity</td>
                     <td style="text-align: right;">
-                        @(item.UnitPrice.HasValue ? item.UnitPrice.Value.ToString("N0") : "")
+                        @(item.UnitPrice.HasValue
+                    ? item.UnitPrice.Value.ToString("N0")
+                    : "")
                     </td>
-                    <td style="text-align: right;">@(item.Quantity * item.UnitPrice).ToString("N0")</td>
+                    <td style="text-align: right;">
+                        @(item.UnitPrice.HasValue
+                    ? ((decimal)(item.Quantity * item.UnitPrice.Value)).ToString("N0")
+                    : "")
+                    </td>
                 </tr>
             }
         </tbody>

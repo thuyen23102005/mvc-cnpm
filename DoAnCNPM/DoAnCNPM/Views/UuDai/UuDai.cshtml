@@ -1,21 +1,178 @@
-﻿@{
-    ViewBag.Title = "Ưu Đãi Tháng 07/2025";
+﻿@model IEnumerable<DoAnCNPM.Models.Coupon>
+
+@{
+    ViewBag.Title = "Mã giảm giá";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container mt-5">
-    <h1 class="text-center mb-4"style="color: #89CFF0;">ƯU ĐÃI CIRCLE K THÁNG 07/2025</h1>
+    <h1 class="text-center mb-4" style="color: #89CFF0;">MÃ GIẢM GIÁ CIRCLE K</h1>
 
     <p class="text-center text-dark mb-4">
-        Khám phá ngay chương trình khuyến mãi cực HOT từ Circle K trong tháng 07 này!
-        Nhiều sản phẩm được giảm giá, tặng quà và mua 1 tặng 1 siêu hấp dẫn.
+        Khám phá ngay các mã giảm giá cực HOT từ Circle K! 
+        Áp dụng ngay để tiết kiệm chi phí mua sắm của bạn.
     </p>
 
-    <div class="text-center">
-        <img src="~/Content/Images/UuDai_CircleK.png" class="img-fluid shadow rounded" alt="Ưu đãi Circle K Tháng 07/2025">
+    <!-- Form tìm kiếm -->
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-6">
+            @using (Html.BeginForm("UuDai", "UuDai", FormMethod.Get))
+            {
+                <div class="input-group">
+                    <input type="text" name="searchString" class="form-control" 
+                           placeholder="Tìm kiếm mã giảm giá..." 
+                           value="@ViewBag.SearchString">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search"></i> Tìm kiếm
+                    </button>
+                    @if (!string.IsNullOrEmpty(ViewBag.SearchString))
+                    {
+                        <a href="@Url.Action("UuDai")" class="btn btn-outline-secondary">
+                            <i class="fas fa-times"></i> Xóa
+                        </a>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="text-center">
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i> 
+                @if (!string.IsNullOrEmpty(ViewBag.SearchString))
+                {
+                    <span>Không tìm thấy mã giảm giá nào phù hợp với từ khóa "@ViewBag.SearchString".</span>
+                }
+                else
+                {
+                    <span>Hiện tại chưa có mã giảm giá nào đang hoạt động.</span>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var coupon in Model)
+            {
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-primary">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h5 class="mb-0">
+                                <i class="fas fa-tag"></i> @coupon.Code
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title text-primary">@coupon.Description</h6>
+                            
+                            <div class="mb-3">
+                                @if (coupon.DiscountType == "Percentage")
+                                {
+                                    <span class="badge bg-success fs-6">Giảm @coupon.DiscountValue%</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-success fs-6">Giảm @coupon.DiscountValue.ToString("N0") VNĐ</span>
+                                }
+                            </div>
+
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <i class="fas fa-shopping-cart text-muted"></i>
+                                    <small>Đơn hàng tối thiểu: <strong>@coupon.MinimumOrderValue.ToString("N0") VNĐ</strong></small>
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-calendar-alt text-muted"></i>
+                                    <small>Hiệu lực: @coupon.StartDate.ToString("dd/MM/yyyy") - @coupon.EndDate.ToString("dd/MM/yyyy")</small>
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-ticket-alt text-muted"></i>
+                                    <small>Còn lại: <strong class="text-success">@(coupon.Quantity - coupon.UsedQuantity)</strong> mã</small>
+                                </li>
+                            </ul>
+
+                            <div class="progress mb-3" style="height: 8px;">
+                                @{
+                                    var usagePercentage = (double)coupon.UsedQuantity / coupon.Quantity * 100;
+                                }
+                                <div class="progress-bar bg-warning" role="progressbar" 
+                                     style="width: @usagePercentage%" 
+                                     aria-valuenow="@usagePercentage" 
+                                     aria-valuemin="0" 
+                                     aria-valuemax="100">
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <button class="btn btn-outline-primary btn-sm copy-coupon" 
+                                        data-code="@coupon.Code" 
+                                        data-toggle="tooltip" 
+                                        title="Click để copy mã">
+                                    <i class="fas fa-copy"></i> Copy mã
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small class="text-muted">
+                                <i class="fas fa-info-circle"></i> 
+                                Áp dụng mã khi thanh toán
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="text-center mt-4">
+            <div class="alert alert-info">
+                <h6><i class="fas fa-lightbulb"></i> Hướng dẫn sử dụng:</h6>
+                <ol class="text-start mb-0">
+                    <li>Chọn mã giảm giá phù hợp với đơn hàng của bạn</li>
+                    <li>Copy mã và thêm vào giỏ hàng</li>
+                    <li>Nhập mã khi thanh toán để được giảm giá</li>
+                    <li>Mỗi mã chỉ được sử dụng một lần</li>
+                </ol>
+            </div>
+        </div>
+    }
+
+    <!-- Banner ưu đãi -->
+    <div class="text-center mt-5">
+        <img src="~/Content/Images/UuDai_CircleK.png" class="img-fluid shadow rounded" alt="Ưu đãi Circle K" style="max-width: 600px;">
     </div>
 
     <p class="text-muted text-center mt-3">
-        ⏰ Áp dụng từ 06:00 ngày 01/07/2025 đến 23:59 ngày 31/07/2025 tại tất cả cửa hàng Circle K toàn quốc.
+        ⏰ Các mã giảm giá có hiệu lực theo thời gian quy định. Vui lòng kiểm tra trước khi sử dụng.
     </p>
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Initialize tooltips
+            $('[data-toggle="tooltip"]').tooltip();
+
+            // Copy coupon code functionality
+            $('.copy-coupon').click(function () {
+                var code = $(this).data('code');
+                navigator.clipboard.writeText(code).then(function () {
+                    // Hiển thị áp dụng thành công
+                    var button = $('.copy-coupon[data-code="' + code + '"]');
+                    var originalText = button.html();
+                    button.html('<i class="fas fa-check"></i> Đã copy');
+                    button.removeClass('btn-outline-primary').addClass('btn-success');
+                    
+                    setTimeout(function () {
+                        button.html(originalText);
+                        button.removeClass('btn-success').addClass('btn-outline-primary');
+                    }, 2000);
+                }).catch(function (err) {
+                    console.error('Could not copy text: ', err);
+                    alert('Không thể copy mã. Vui lòng copy thủ công: ' + code);
+                });
+            });
+        });
+    </script>
+}

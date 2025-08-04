@@ -1,0 +1,124 @@
+@model DoAnCNPM.Models.Coupon
+
+@{
+    ViewBag.Title = "Xóa mã giảm giá";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="mb-0">
+                        <i class="fas fa-exclamation-triangle"></i> Xác nhận xóa mã giảm giá
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning">
+                        <strong>Bạn có chắc chắn muốn xóa mã giảm giá này?</strong>
+                        <p class="mb-0">Hành động này không thể hoàn tác.</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>Mã giảm giá:</strong>
+                        </div>
+                        <div class="col-md-6">
+                            <span class="badge bg-primary fs-6">@Model.Code</span>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <strong>Mô tả:</strong>
+                        </div>
+                        <div class="col-md-6">
+                            @Model.Description
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <strong>Loại giảm giá:</strong>
+                        </div>
+                        <div class="col-md-6">
+                            @if (Model.DiscountType == "Percentage")
+                            {
+                                <span class="badge bg-info">Phần trăm (@Model.DiscountValue%)</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning">Cố định (@Model.DiscountValue.ToString("N0") VNĐ)</span>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <strong>Đơn hàng tối thiểu:</strong>
+                        </div>
+                        <div class="col-md-6">
+                            @Model.MinimumOrderValue.ToString("N0") VNĐ
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <strong>Số lượng:</strong>
+                        </div>
+                        <div class="col-md-6">
+                            @Model.UsedQuantity / @Model.Quantity (đã sử dụng / tổng)
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <strong>Ngày hiệu lực:</strong>
+                        </div>
+                        <div class="col-md-6">
+                            @Model.StartDate.ToString("dd/MM/yyyy") - @Model.EndDate.ToString("dd/MM/yyyy")
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <strong>Trạng thái:</strong>
+                        </div>
+                        <div class="col-md-6">
+                            @{
+                                var now = DateTime.Now.Date;
+                                var isValid = Model.IsActive && 
+                                             now >= Model.StartDate && 
+                                             now <= Model.EndDate && 
+                                             Model.UsedQuantity < Model.Quantity;
+                            }
+                            @if (isValid)
+                            {
+                                <span class="badge bg-success">Hoạt động</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Không hoạt động</span>
+                            }
+                        </div>
+                    </div>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="d-flex justify-content-between mt-4">
+                            <a href="@Url.Action("Index")" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Hủy bỏ
+                            </a>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Xác nhận xóa
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

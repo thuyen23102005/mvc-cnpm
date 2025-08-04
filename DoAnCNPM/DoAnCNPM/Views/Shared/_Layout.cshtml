@@ -224,7 +224,7 @@
         border: 3px solid #FFCC33;
         color: black;
         border-radius: 5px;
-        background-color: white;
+        background-color: #FFCC33;
         transition: all 0.3s ease;
         display: inline-flex;
         align-items: center;
@@ -234,14 +234,16 @@
 
         /* Hover đổi màu nền và chữ */
         .cart-button:hover {
-            background-color: #FFCC33;
+            border: 3px solid #FFCC33;
+            background-color: white;
             color: black;
         }
+
     .register-button {
         border: 3px solid #33FF66;
         color: black;
         border-radius: 5px;
-        background-color: white;
+        background-color: #33FF66;
         transition: all 0.3s ease;
         display: inline-flex;
         align-items: center;
@@ -251,14 +253,16 @@
 
         /* Hover đổi màu nền và chữ */
         .register-button:hover {
-            background-color: #33FF66;
+            border: 3px solid #33FF66;
+            background-color: white;
             color: black;
         }
+
     .login-button {
         border: 3px solid aqua;
         color: black;
         border-radius: 5px;
-        background-color: white;
+        background-color: aqua;
         transition: all 0.3s ease;
         display: inline-flex;
         align-items: center;
@@ -268,12 +272,13 @@
 
         /* Hover đổi màu nền và chữ */
         .login-button:hover {
-            background-color: aqua;
+            border: 3px solid aqua;
+            background-color: white;
             color: black;
         }
 </style>
 @*-------------------------------------------------------------------------------------------------------------------------------------------*@
-<body>
+<body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #ffff;">
         <div class="container d-flex justify-content-between align-items-center w-100">
 
@@ -317,9 +322,9 @@
                     @if (Session["UserName"] != null)
                     {
                         <li class="nav-item">
-                            <span class="nav-link btn mx-1" style="border: 1px solid #28a745; color: #28a745; border-radius: 5px;">
+                            <a href="@Url.Action("NguoiDung", "Account")" class="nav-link btn mx-1" style="border: 1px solid #28a745; color: #28a745; border-radius: 5px;">
                                 <i class="fa fa-user"></i> @Session["UserName"]
-                            </span>
+                            </a>
                         </li>
                         <li class="nav-item">
                             @Html.ActionLink("Đăng Xuất", "Logout", "Account", null, new
@@ -374,7 +379,7 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="full-footer">
+    <footer class="full-footer mt-auto">
         <!-- HÀNG 1: LOGO + MENU PHỤ -->
         <div class="footer-top container d-flex justify-content-between align-items-center flex-wrap">
             <!-- Logo -->

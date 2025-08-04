@@ -1,0 +1,80 @@
+﻿@model IEnumerable<DoAnCNPM.Models.RevenueByMonth>
+@{
+    ViewBag.Title = "RevenueByMonth";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Thống kê doanh thu theo tháng</h2>
+
+<canvas id="revenueChart" width="1000" height="400"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('revenueChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [
+                @foreach (var item in Model)
+                {
+                    @: "@(item.Month)/@(item.Year)",
+                    // ví dụ: "7/2025",
+                }
+            ],
+            datasets: [{
+                label: 'Doanh thu (VNĐ)',
+                data: [
+                    @foreach (var item in Model)
+                    {
+                        @: @item.Revenue,
+                    }
+                ],
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return value.toLocaleString('vi-VN') + ' đ';
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
+<h3 style="margin-top: 40px;">Bảng thống kê</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Tháng/Năm</th>
+            <th>Doanh thu (VNĐ)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Month/@item.Year</td>
+                <td>@item.Revenue.ToString("N0") đ</td>
+            </tr>
+        }
+        <tr style="font-weight: bold; background-color: #f0f0f0;">
+            <td>Tổng doanh thu</td>
+            <td>
+                @{
+                    var totalRevenue = Model.Sum(x => x.Revenue);
+                    @totalRevenue.ToString("N0")
+                } đ
+            </td>
+        </tr>
+    </tbody>
+</table>
+
